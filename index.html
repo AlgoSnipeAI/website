@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AlgoSnipe AI</title>
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,700&display=swap" rel="stylesheet" />
+  <style>
+    /* Make body transparent so video shows through */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Inter', sans-serif;
+      background: transparent;
+      color: black;
+      overflow-x: hidden;
+    }
+
+    /* Video fills background with increased opacity */
+    #yt-bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.35; /* stronger visibility */
+      pointer-events: none;
+      background: black;
+    }
+
+    /* Content containers transparent */
+    nav, .hero, .features, footer, section, .feature-card {
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1em 2em;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 10;
+      box-sizing: border-box;
+      /* Transparent nav background so video visible behind it */
+      background: transparent;
+      border-bottom: 1px solid rgba(0,0,0,0.2);
+      color: black;
+    }
+
+    .nav-logo {
+      font-size: 1.4em;
+      font-weight: 700;
+      color: black;
+      text-decoration: none;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2em;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      color: black;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .hero {
+      padding-top: 120px;
+      text-align: center;
+      background: transparent !important;
+    }
+
+    .hero > div {
+      background: transparent !important;
+    }
+
+    .hero-title {
+      font-size: 3em;
+      font-weight: 700;
+      color: black;
+    }
+
+    .hero-subtitle {
+      font-size: 1.4em;
+      color: #333;
+      max-width: 600px;
+      margin: 0 auto 2em auto;
+      line-height: 1.5;
+      background: transparent;
+    }
+
+    .hero-cta {
+      background: black;
+      color: white;
+      padding: 1em 2em;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .features {
+      padding: 4em 2em;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2em;
+      background: transparent !important;
+    }
+
+    .feature-card {
+      width: 300px;
+      color: black;
+      background: transparent !important;
+    }
+
+    .feature-title {
+      font-size: 1.25em;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .feature-desc {
+      font-size: 1em;
+      color: #444;
+      line-height: 1.4;
+      background: transparent;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2em;
+      color: #666;
+      font-size: 0.9em;
+      background: transparent !important;
+      position: relative;
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+
+  <video
+    id="yt-bg"
+    muted
+    playsinline
+    autoplay
+    loop
+    preload="auto"
+    crossorigin="anonymous"
+  >
+    <source src="https://algosnipeai.github.io/website/18743334-hd_1920_1080_60fps.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <nav role="navigation">
+    <a class="nav-logo" href="#">AlgoSnipe AI</a>
+    <ul>     
+      <li><a href="mailto:AlgoSnipeAI@gmail.com">Contact</a></li>      
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div>
+      <h1 class="hero-title">AI-Driven Trading. Precision. Speed. Zero Emotion.</h1>
+      <p class="hero-subtitle">
+        Built for Modern Markets.<br />
+        Harness advanced AI, machine learning, and advanced ordering to snipe opportunities and execute risk-managed trades with institution-grade performance—made for retail investors.
+      </p>
+      <a class="hero-cta" href="mailto:AlgoSnipeAI@gmail.com">Get In Touch</a>
+    </div>
+  </section>
+
+  <section id="features" class="features" aria-label="Core Features">
+    <div class="feature-card">
+      <div class="feature-title">Real-Time Market Scanning</div>
+      <div class="feature-desc">Leverage AI to monitor global equity markets 24/7/365 to identify actionable signals as they emerge.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-title">Smart Trade Execution</div>
+      <div class="feature-desc">Deploy advanced order types, intelligent order routing and microstructure-aware strategies for optimal fills and reduced slippage.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-title">Custom Algorithms</div>
+      <div class="feature-desc">We develop, test, and deploy custom trading algorithms tailored to your unique risk and return profile.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-title">Backtested Signal Generation</div>
+      <div class="feature-desc">Robust back and forward tested strategies are low-risk, data-driven and performance-validated.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-title">Retail-First, Pro-Grade</div>
+      <div class="feature-desc">Enjoy institutional technology and discipline, delivered through a platform designed for retail investors.</div>
+    </div>
+  </section>
+
+  <section id="about" class="features" aria-label="About AlgoSnipe AI">
+    <div class="feature-card" style="max-width:900px; width:100%; text-align:center; margin:auto;">
+      <div class="feature-title" style="font-size:1.6em;">About Us</div>
+      <div class="feature-desc" style="font-size:1.1em;">
+        AlgoSnipe AI was founded to democratize access to advanced trading technology. Our mission is to empower individuals with the tools, intelligence, and execution quality once reserved for institutional players.
+        <br /><br />
+        <a href="mailto:AlgoSnipeAI@gmail.com" class="hero-cta" style="margin-top:20px;">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 AlgoSnipe AI. All rights reserved.
+  </footer>
+
+  <script>
+    window.addEventListener("load", function () {
+      const vid = document.getElementById("yt-bg");
+      vid.muted = true;
+      vid.play().catch(err => {
+        console.warn("Autoplay blocked:", err);
+      });
+    });
+  </script>
+
+</body>
+</html>
