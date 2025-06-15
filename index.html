@@ -6,7 +6,6 @@
   <title>AlgoSnipe AI</title>
   <link href="https://fonts.googleapis.com/css?family=Inter:400,700&display=swap" rel="stylesheet" />
   <style>
-    /* Make body transparent so video shows through */
     html, body {
       margin: 0;
       padding: 0;
@@ -17,7 +16,6 @@
       overflow-x: hidden;
     }
 
-    /* Video fills background with increased opacity */
     #yt-bg {
       position: fixed;
       top: 0; left: 0;
@@ -25,39 +23,38 @@
       height: 100vh;
       object-fit: cover;
       z-index: -1;
-      opacity: 0.35; /* stronger visibility */
+      opacity: 0.35;
       pointer-events: none;
       background: black;
     }
 
-    /* Content containers transparent */
     nav, .hero, .features, footer, section, .feature-card {
       background: transparent !important;
       border: none !important;
       box-shadow: none !important;
     }
 
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1em 2em;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 10;
-  box-sizing: border-box;
-  background: transparent;
-  border-bottom: 1px solid rgba(0,0,0,0.2);
-  color: black;
-}
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1em 2em;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 10;
+      box-sizing: border-box;
+      background: transparent;
+      border-bottom: 1px solid rgba(0,0,0,0.2);
+      color: black;
+    }
 
-.nav-logo img {
-  height: 40px;
-  width: auto;
-  display: block;
-}
-
+    /* Logo image styling */
+    .nav-logo img {
+      height: 40px;
+      width: auto;
+      display: block;
+    }
 
     nav ul {
       list-style: none;
@@ -135,10 +132,13 @@ nav {
       background: transparent;
     }
 
-    /* Patch: Move About Us section higher */
     #about {
       margin-top: 1rem !important;
       padding-top: 0 !important;
+    }
+
+    #about .hero-cta {
+      margin-top: 0.5rem !important;
     }
 
     footer {
@@ -168,7 +168,9 @@ nav {
   </video>
 
   <nav role="navigation">
-    <a class="nav-logo" href="#">AlgoSnipe AI</a>
+    <div class="nav-logo">
+      <img src="https://raw.githubusercontent.com/AlgoSnipeAI/website/main/mainLogo.png" alt="AlgoSnipe AI Logo" />
+    </div>
     <ul>     
       <li><a href="mailto:AlgoSnipeAI@gmail.com">Contact</a></li>      
     </ul>
