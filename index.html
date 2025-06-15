@@ -12,7 +12,6 @@
       --background-light: #15171a;
       --text-main: #fff;
       --text-muted: #b5b5b5;
-      --accent: #00fff7;
     }
     html, body {
       height: 100%;
@@ -22,11 +21,23 @@
       background: var(--background);
       color: var(--text-main);
       box-sizing: border-box;
+      overflow-x: hidden;
     }
     body {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      position: relative;
+    }
+    #bg-canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.23;
+      transition: opacity 0.3s;
+      background: transparent;
     }
     nav {
       width: 100%;
@@ -39,7 +50,7 @@
       position: fixed;
       top: 0;
       left: 0;
-      z-index: 100;
+      z-index: 2;
       border-bottom: 1px solid #222;
     }
     .nav-logo {
@@ -79,8 +90,9 @@
       justify-content: center;
       text-align: center;
       padding: 140px 20px 60px 20px;
-      background: linear-gradient(120deg, #131415 60%, #0e1012 100%);
       position: relative;
+      z-index: 1;
+      background: linear-gradient(120deg, #131415 60%, #0e1012 100%);
     }
     .hero-title {
       font-size: 3.5em;
@@ -124,6 +136,8 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 36px;
+      position: relative;
+      z-index: 1;
     }
     .feature-card {
       background: #16181b;
@@ -156,6 +170,8 @@
       color: #888;
       font-size: 1em;
       margin-top: auto;
+      z-index: 1;
+      position: relative;
     }
     @media (max-width: 900px) {
       .hero-title { font-size: 2.1em; }
@@ -170,6 +186,7 @@
   </style>
 </head>
 <body>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
   <nav role="navigation">
     <a class="nav-logo" href="#">AlgoSnipe AI</a>
     <ul>
@@ -224,5 +241,142 @@
   <footer>
     &copy; 2025 AlgoSnipe AI. All rights reserved.
   </footer>
+  <script>
+    // Canvas Animation for Stock Charts and Dollar Amounts
+    const canvas = document.getElementById('bg-canvas');
+    const ctx = canvas.getContext('2d');
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+
+    function resizeCanvas() {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = width;
+      canvas.height = height;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    // Chart and Ticker Config
+    const chartColors = [
+      'rgba(0,255,247,0.9)',
+      'rgba(0,255,200,0.6)',
+      'rgba(0,255,247,0.5)',
+      'rgba(0,200,255,0.3)'
+    ];
+    const chartCount = 5;
+    const charts = [];
+    const tickers = [];
+
+    function randomAmount() {
+      // Generate a random USD string
+      const val = (Math.random() * 500 + 25).toFixed(2);
+      return Math.random() > 0.5 ? `$${val}` : `-$${val}`;
+    }
+
+    // Initialize chart lines
+    function initCharts() {
+      charts.length = 0;
+      for (let i = 0; i < chartCount; i++) {
+        const points = [];
+        const waveAmp = Math.random() * 24 + 24;
+        const yBase = height * (0.2 + 0.6 * Math.random());
+        const speed = 0.4 + Math.random() * 0.8;
+        const color = chartColors[i % chartColors.length];
+        for (let x = 0; x < width; x += 20) {
+          points.push({
+            x,
+            y: yBase + Math.sin(x/80 + i)*waveAmp + Math.random()*12
+          });
+        }
+        charts.push({points, yBase, waveAmp, speed, t: Math.random()*100, color});
+      }
+    }
+
+    // Initialize floating tickers/dollar amounts
+    function initTickers() {
+      tickers.length = 0;
+      for (let i = 0; i < 14; i++) {
+        tickers.push({
+          text: randomAmount(),
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - 0.5) * 0.12,
+          vy: -(Math.random() * 0.24 + 0.05),
+          size: Math.random() * 17 + 15,
+          alpha: 0.34 + Math.random() * 0.5,
+        });
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+
+      // Draw moving chart lines
+      charts.forEach((chart, idx) => {
+        ctx.save();
+        ctx.beginPath();
+        ctx.lineWidth = 2 + (idx === 0 ? 1.5 : 0.5);
+        ctx.strokeStyle = chart.color;
+        let prev = null;
+        chart.t += chart.speed*0.01;
+        for (let i = 0; i < chart.points.length; i++) {
+          const pt = chart.points[i];
+          const yOsc = chart.waveAmp * Math.sin(i/6 + chart.t + idx*2) + Math.sin(i/3 + chart.t*2) * 7;
+          const y = chart.yBase + yOsc + Math.random()*1.2;
+          if (i === 0) ctx.moveTo(pt.x, y);
+          else ctx.lineTo(pt.x, y);
+          chart.points[i].y = y;
+          prev = pt;
+        }
+        ctx.globalAlpha = 0.9 - idx*0.13;
+        ctx.shadowBlur = 8 - idx*1.5;
+        ctx.shadowColor = chart.color;
+        ctx.stroke();
+        ctx.restore();
+      });
+
+      // Draw floating tickers
+      tickers.forEach(ticker => {
+        ctx.save();
+        ctx.globalAlpha = ticker.alpha;
+        ctx.font = `bold ${ticker.size}px 'Inter', Arial, sans-serif`;
+        ctx.fillStyle = 'rgba(0,255,247,0.81)';
+        ctx.shadowBlur = 6;
+        ctx.shadowColor = 'rgba(0,255,247,0.18)';
+        ctx.fillText(ticker.text, ticker.x, ticker.y);
+        ctx.restore();
+
+        // Move ticker
+        ticker.x += ticker.vx;
+        ticker.y += ticker.vy;
+
+        // Reset if out of bounds
+        if (ticker.y < -30 || ticker.x < -120 || ticker.x > width + 80) {
+          ticker.x = Math.random() * width;
+          ticker.y = height + 30 + Math.random() * 60;
+          ticker.text = randomAmount();
+          ticker.size = Math.random() * 17 + 15;
+          ticker.alpha = 0.34 + Math.random() * 0.5;
+          ticker.vx = (Math.random() - 0.5) * 0.12;
+          ticker.vy = -(Math.random() * 0.24 + 0.05);
+        }
+      });
+
+      requestAnimationFrame(animate);
+    }
+
+    // On resize, re-init charts and tickers
+    window.addEventListener('resize', () => {
+      resizeCanvas();
+      initCharts();
+      initTickers();
+    });
+
+    // Init and start
+    initCharts();
+    initTickers();
+    animate();
+  </script>
 </body>
 </html>
