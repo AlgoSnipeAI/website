@@ -15,7 +15,7 @@
       overflow-x: hidden;
     }
 
-    /* ✅ Fullscreen Video Background */
+    /* Fullscreen Video Background */
     #bg-video {
       position: fixed;
       top: 0;
@@ -24,17 +24,18 @@
       height: 100vh;
       object-fit: cover;
       z-index: -2;
+      opacity: 0.9;
       pointer-events: none;
     }
 
-    /* ✅ Optional dark overlay for readability */
+    /* Light Overlay for Text Contrast */
     .overlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: rgba(0, 0, 0, 0.45);
+      background: rgba(0, 0, 0, 0.08);
       z-index: -1;
     }
 
@@ -57,7 +58,7 @@
 
     nav {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start;
       align-items: center;
       padding: 1em 1.5rem;
       position: fixed;
@@ -70,19 +71,6 @@
       font-size: 1.4em;
       font-weight: 700;
       text-decoration: none;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5em;
-      margin: 0;
-      padding: 0;
-    }
-
-    nav ul li a {
-      text-decoration: none;
-      font-weight: 500;
     }
 
     .hero {
@@ -152,13 +140,7 @@
       .hero-title { font-size: 2em; }
       .hero-subtitle { font-size: 1.1em; }
       nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      nav ul {
-        flex-direction: column;
-        gap: 1em;
-        margin-top: 1em;
+        justify-content: center;
       }
     }
 
@@ -172,22 +154,17 @@
 </head>
 <body>
 
-  <!-- ✅ Background Video -->
+  <!-- Fullscreen Background Video -->
   <video id="bg-video" autoplay muted loop playsinline preload="auto">
     <source src="https://algosnipeai.github.io/website/18743334-hd_1920_1080_60fps.mp4" type="video/mp4" />
     Your browser does not support the video tag.
   </video>
 
-  <!-- ✅ Optional Dark Overlay -->
+  <!-- Light Overlay -->
   <div class="overlay"></div>
 
   <nav role="navigation">
     <a class="nav-logo" href="#">AlgoSnipe AI</a>
-    <ul>
-      <li><a href="#features">Features</a></li>
-      <li><a href="mailto:contact@algosnipe.ai">Contact</a></li>
-      <li><a href="#about">About</a></li>
-    </ul>
   </nav>
 
   <section class="hero">
