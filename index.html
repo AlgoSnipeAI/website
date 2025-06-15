@@ -21,7 +21,6 @@
       font-family: 'Inter', Arial, sans-serif;
       background: var(--background);
       color: var(--text-main);
-      overflow-x: hidden;
     }
     body { display: flex; flex-direction: column; min-height: 100vh; }
 
@@ -39,57 +38,57 @@
     nav ul li a { color: var(--text-main); text-decoration: none; font-weight: 500; transition: color .2s; }
     nav ul li a:hover { color: var(--primary); }
 
-    /* ---------- Hero ---------- */
+    /* ---------- Hero (video background) ---------- */
     .hero {
       position: relative;
-      min-height: 80vh;                    /* big enough to showcase video */
-      padding: 140px 20px 80px;
+      min-height: 70vh;                /* shorter so cards sit higher */
+      padding: 110px 20px 60px;        /* top padding ~ nav height + 46 */
       text-align: center;
       overflow: hidden;
+      margin: 0;
     }
     .hero video {
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
       object-fit: cover;
-      z-index: -1;                         /* immediately behind content */
+      z-index: -1;                     /* behind text but above body bg */
+      pointer-events: none;
     }
-    .hero-title  { font-size: 3.5em; font-weight: 700; line-height:1.1; letter-spacing:-2px; margin:0 0 18px; max-width:900px;
+    .hero-title  { font-size: 3em; font-weight: 700; letter-spacing:-2px; margin:0 0 16px;
                    text-shadow:0 2px 6px rgba(0,0,0,0.6);}
-    .hero-subtitle{ font-size:1.4em; color:var(--text-muted); margin:0 auto 38px; max-width:650px; text-shadow:0 1px 4px rgba(0,0,0,0.6);}
-    .hero-cta { display:inline-block; background:var(--primary); color:#000; font-weight:bold; padding:16px 44px; border-radius:8px; text-decoration:none; box-shadow:0 2px 24px rgba(0,255,247,0.14); }
+    .hero-subtitle{ font-size:1.3em; color:var(--text-muted); margin:0 auto 32px; max-width:640px;
+                   text-shadow:0 1px 4px rgba(0,0,0,0.6);}
+    .hero-cta { display:inline-block; background:var(--primary); color:#000; font-weight:bold; padding:14px 40px;
+                border-radius:8px; text-decoration:none; box-shadow:0 2px 24px rgba(0,255,247,0.14);}
     .hero-cta:hover { background:#0ff; color:#111; }
 
     /* ---------- Features ---------- */
     .features {
       background: var(--background-light);
-      padding: 80px 20px 60px;
-      display: flex; flex-wrap: wrap; gap: 36px;
-      justify-content: center;
-      align-items: flex-start;
+      padding: 60px 20px 60px;
+      display: flex; flex-wrap: wrap; gap: 32px;
+      justify-content: center; align-items: flex-start;
     }
     .feature-card {
-      background:#16181b;
-      border:1px solid #23252b;
-      border-radius:12px;
-      padding:22px 20px;
-      flex:0 1 240px;
-      max-width:280px;
+      background:#16181b; border:1px solid #23252b;
+      border-radius:12px; padding:22px 20px;
+      flex:0 1 240px; max-width:260px;
       box-shadow:0 2px 12px rgba(0,0,0,0.08);
     }
-    .feature-title { color:var(--primary); font-size:1.15em; font-weight:700; margin-bottom:8px; }
-    .feature-desc  { color:var(--text-muted); line-height:1.5; font-size:0.95em; }
+    .feature-title { color:var(--primary); font-size:1.1em; font-weight:700; margin-bottom:6px;}
+    .feature-desc  { color:var(--text-muted); font-size:.95em; line-height:1.5;}
 
     /* ---------- About & Footer ---------- */
     #about { background:#181a1e; }
-    footer { background:#101214; text-align:center; color:#888; padding:28px 10px 20px; margin-top:auto; }
+    footer { background:#101214; text-align:center; color:#888; padding:26px 10px 18px; margin-top:auto;}
 
     /* ---------- Responsive tweaks ---------- */
     @media (max-width:900px){
-      .hero-title{font-size:2.1em}.hero-subtitle{font-size:1.1em}
+      .hero-title{font-size:2.1em}.hero-subtitle{font-size:1.05em}
     }
     @media (max-width:600px){
-      nav{padding:0 12px}
+      nav{padding:0 14px}
       .hero{padding-top:120px}
       .feature-card{flex:1 1 100%; max-width:none}
     }
@@ -108,47 +107,48 @@
   <!-- Hero with video background -->
   <section class="hero">
     <video autoplay muted loop playsinline preload="auto"
+           poster="https://algosnipeai.github.io/website/poster.jpg"
            src="https://algosnipeai.github.io/website/18743334-hd_1920_1080_60fps.mp4"
            type="video/mp4"></video>
 
-    <h1 class="hero-title">AI-Driven Trading. Precision. Speed.<br>Built for Modern Markets.</h1>
+    <h1 class="hero-title">AI-Driven Trading. Precision. Speed.</h1>
     <p class="hero-subtitle">
-      Harness advanced AI, machine learning, and market microstructure to snipe opportunities and execute risk-managed trades with institution-grade performance—made for retail investors.
+      Harness advanced AI and market micro-structure to snipe opportunities and execute risk-managed trades with institution-grade performance.
     </p>
-    <a class="hero-cta" href="mailto:AlgoSnipeAI@gmail.com">Get In Touch</a>
+    <a class="hero-cta" href="mailto:AlgoSnipeAI@gmail.com">Get&nbsp;In&nbsp;Touch</a>
   </section>
 
   <!-- Features -->
   <section id="features" class="features" aria-label="Core Features">
     <div class="feature-card">
       <div class="feature-title">Real-Time Market Scanning</div>
-      <div class="feature-desc">Leverage AI to monitor global equity markets and surface actionable signals instantly.</div>
+      <div class="feature-desc">AI constantly monitors global equities and surfaces actionable signals instantly.</div>
     </div>
     <div class="feature-card">
       <div class="feature-title">Smart Trade Execution</div>
-      <div class="feature-desc">Microstructure-aware routing for optimal fills, razor-thin spreads, and reduced slippage.</div>
+      <div class="feature-desc">Micro-structure-aware routing for optimal fills, razor-thin spreads, minimal slippage.</div>
     </div>
     <div class="feature-card">
       <div class="feature-title">Custom Algorithms</div>
-      <div class="feature-desc">Design, back-test, and deploy bespoke strategies aligned to your risk profile.</div>
+      <div class="feature-desc">Design, back-test, and deploy bespoke strategies aligned to your exact risk profile.</div>
     </div>
     <div class="feature-card">
-      <div class="feature-title">Backtested Signal Generation</div>
-      <div class="feature-desc">Billions of simulations ensure every signal is statistically robust and performance-validated.</div>
+      <div class="feature-title">Backtested Signals</div>
+      <div class="feature-desc">Billions of simulations ensure each signal is statistically robust and performance-validated.</div>
     </div>
     <div class="feature-card">
       <div class="feature-title">Retail-First, Pro-Grade</div>
-      <div class="feature-desc">Institutional-class technology and discipline, served through a platform built for individuals.</div>
+      <div class="feature-desc">Institutional-class tech and discipline delivered through a platform built for individuals.</div>
     </div>
   </section>
 
   <!-- About -->
   <section id="about" class="features" aria-label="About AlgoSnipe AI">
     <div class="feature-card" style="max-width:900px;margin:auto;text-align:center;">
-      <div class="feature-title" style="font-size:1.6em;">About&nbsp;Us</div>
-      <div class="feature-desc" style="font-size:1.05em;">
-        AlgoSnipe AI was founded to democratize access to advanced trading technology. Our mission is to empower individuals with tools, intelligence, and execution quality once reserved for elite institutions.<br><br>
-        <a href="mailto:AlgoSnipeAI@gmail.com" class="hero-cta" style="margin-top:20px;">Contact&nbsp;Us</a>
+      <div class="feature-title" style="font-size:1.4em;">About&nbsp;Us</div>
+      <div class="feature-desc" style="font-size:1em;">
+        AlgoSnipe AI democratizes advanced trading tech. We empower traders with tools and execution once reserved for elite institutions.<br><br>
+        <a href="mailto:AlgoSnipeAI@gmail.com" class="hero-cta" style="margin-top:18px;">Contact&nbsp;Us</a>
       </div>
     </div>
   </section>
