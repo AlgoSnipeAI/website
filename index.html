@@ -8,94 +8,88 @@
   <style>
     :root {
       --primary: #00fff7;
-      --background: #0e1012;
-      --background-light: #15171a;
-      --text-main: #ffffff;
+      --bg-dark: #0e1012;
+      --bg-light: #15171a;
+      --text-main: #fff;
       --text-muted: #b5b5b5;
     }
 
-    /* ---------- Base ---------- */
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Inter', Arial, sans-serif;
-      background: var(--background);
-      color: var(--text-main);
-    }
-    body { display: flex; flex-direction: column; min-height: 100vh; }
+    /* — Base — */
+    html,body{margin:0;padding:0;font-family:'Inter',Arial,sans-serif;background:var(--bg-dark);color:var(--text-main);}
+    body{display:flex;flex-direction:column;min-height:100vh;}
 
-    /* ---------- Navigation ---------- */
-    nav {
-      position: fixed; top: 0; left: 0;
-      width: 100%; height: 64px;
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 0 40px; box-sizing: border-box;
-      background: rgba(14,16,18,0.92); border-bottom: 1px solid #222;
-      z-index: 100;
+    /* — Navbar — */
+    nav{
+      position:fixed;top:0;left:0;width:100%;height:64px;
+      display:flex;justify-content:space-between;align-items:center;
+      padding:0 40px;box-sizing:border-box;
+      background:rgba(14,16,18,.92);border-bottom:1px solid #222;z-index:100;
     }
-    .nav-logo { font-size: 1.4em; font-weight: 700; letter-spacing: -2px; color: #fff; text-decoration: none; }
-    nav ul { list-style: none; display: flex; gap: 32px; margin: 0; padding: 0; }
-    nav ul li a { color: var(--text-main); text-decoration: none; font-weight: 500; transition: color .2s; }
-    nav ul li a:hover { color: var(--primary); }
+    .nav-logo{font-size:1.4em;font-weight:700;letter-spacing:-2px;color:#fff;text-decoration:none;}
+    nav ul{display:flex;gap:32px;margin:0;padding:0;list-style:none;}
+    nav a{color:var(--text-main);text-decoration:none;font-weight:500;transition:color .2s;}
+    nav a:hover{color:var(--primary);}
 
-    /* ---------- Hero (video background) ---------- */
-    .hero {
-      position: relative;
-      min-height: 70vh;                /* shorter so cards sit higher */
-      padding: 110px 20px 60px;        /* top padding ~ nav height + 46 */
-      text-align: center;
-      overflow: hidden;
-      margin: 0;
+    /* — Hero (100 % transparent) — */
+    .hero{
+      position:relative;
+      height:50vh;min-height:360px;
+      padding-top:110px;           /* clear the fixed nav */
+      text-align:center;
+      overflow:hidden;
+      background:transparent;      /* ✅ no masking layer */
     }
-    .hero video {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
-      z-index: -1;                     /* behind text but above body bg */
-      pointer-events: none;
+    .hero video{
+      position:absolute;inset:0;width:100%;height:100%;
+      object-fit:cover;z-index:-1;pointer-events:none;
     }
-    .hero-title  { font-size: 3em; font-weight: 700; letter-spacing:-2px; margin:0 0 16px;
-                   text-shadow:0 2px 6px rgba(0,0,0,0.6);}
-    .hero-subtitle{ font-size:1.3em; color:var(--text-muted); margin:0 auto 32px; max-width:640px;
-                   text-shadow:0 1px 4px rgba(0,0,0,0.6);}
-    .hero-cta { display:inline-block; background:var(--primary); color:#000; font-weight:bold; padding:14px 40px;
-                border-radius:8px; text-decoration:none; box-shadow:0 2px 24px rgba(0,255,247,0.14);}
-    .hero-cta:hover { background:#0ff; color:#111; }
+    .hero h1{
+      font-size:3.2em;font-weight:700;letter-spacing:-2px;margin:0 0 16px;
+      text-shadow:0 2px 6px rgba(0,0,0,.35);
+    }
+    .hero p{
+      font-size:1.25em;color:var(--text-muted);margin:0 auto 32px;max-width:640px;
+      text-shadow:0 1px 4px rgba(0,0,0,.35);
+    }
+    .btn{
+      display:inline-block;background:var(--primary);color:#000;font-weight:700;
+      padding:14px 42px;border-radius:8px;text-decoration:none;
+      box-shadow:0 2px 24px rgba(0,255,247,.14);transition:background .2s,color .2s;
+    }
+    .btn:hover{background:#0ff;color:#111;}
 
-    /* ---------- Features ---------- */
-    .features {
-      background: var(--background-light);
-      padding: 60px 20px 60px;
-      display: flex; flex-wrap: wrap; gap: 32px;
-      justify-content: center; align-items: flex-start;
+    /* — Features — */
+    .features{
+      background:var(--bg-light);
+      padding:60px 20px;
+      display:flex;flex-wrap:wrap;gap:28px;justify-content:center;align-items:flex-start;
     }
-    .feature-card {
-      background:#16181b; border:1px solid #23252b;
-      border-radius:12px; padding:22px 20px;
-      flex:0 1 240px; max-width:260px;
-      box-shadow:0 2px 12px rgba(0,0,0,0.08);
+    .card{
+      background:#16181b;border:1px solid #23252b;border-radius:12px;
+      padding:20px 18px;flex:0 1 230px;max-width:250px;
+      box-shadow:0 2px 12px rgba(0,0,0,.08);
     }
-    .feature-title { color:var(--primary); font-size:1.1em; font-weight:700; margin-bottom:6px;}
-    .feature-desc  { color:var(--text-muted); font-size:.95em; line-height:1.5;}
+    .card h3{color:var(--primary);font-size:1.1em;font-weight:700;margin:0 0 6px;}
+    .card p{color:var(--text-muted);font-size:.95em;line-height:1.45;margin:0;}
 
-    /* ---------- About & Footer ---------- */
-    #about { background:#181a1e; }
-    footer { background:#101214; text-align:center; color:#888; padding:26px 10px 18px; margin-top:auto;}
+    /* — About & Footer — */
+    #about{background:#181a1e;padding:60px 20px;}
+    footer{background:#101214;color:#888;text-align:center;padding:26px 10px 18px;margin-top:auto;}
 
-    /* ---------- Responsive tweaks ---------- */
-    @media (max-width:900px){
-      .hero-title{font-size:2.1em}.hero-subtitle{font-size:1.05em}
+    /* — Responsive tweaks — */
+    @media(max-width:900px){
+      .hero h1{font-size:2.3em}.hero p{font-size:1.05em}
     }
-    @media (max-width:600px){
+    @media(max-width:600px){
       nav{padding:0 14px}
-      .hero{padding-top:120px}
-      .feature-card{flex:1 1 100%; max-width:none}
+      .hero{padding-top:120px;height:55vh;min-height:320px}
+      .card{flex:1 1 100%;max-width:none}
     }
   </style>
 </head>
 <body>
-  <!-- Navigation -->
+
+  <!-- Navbar -->
   <nav>
     <a class="nav-logo" href="#">AlgoSnipe AI</a>
     <ul>
@@ -104,55 +98,37 @@
     </ul>
   </nav>
 
-  <!-- Hero with video background -->
+  <!-- Hero -->
   <section class="hero">
     <video autoplay muted loop playsinline preload="auto"
-           poster="https://algosnipeai.github.io/website/poster.jpg"
-           src="https://algosnipeai.github.io/website/18743334-hd_1920_1080_60fps.mp4"
-           type="video/mp4"></video>
+            src="https://algosnipeai.github.io/website/18743334-hd_1920_1080_60fps.mp4"
+            type="video/mp4"></video>
 
-    <h1 class="hero-title">AI-Driven Trading. Precision. Speed.</h1>
-    <p class="hero-subtitle">
-      Harness advanced AI and market micro-structure to snipe opportunities and execute risk-managed trades with institution-grade performance.
-    </p>
-    <a class="hero-cta" href="mailto:AlgoSnipeAI@gmail.com">Get&nbsp;In&nbsp;Touch</a>
+    <h1>AI-Driven Trading. Precision. Speed.</h1>
+    <p>Harness advanced AI and market micro-structure to snipe opportunities and execute risk-managed trades with institution-grade performance.</p>
+    <a class="btn" href="mailto:AlgoSnipeAI@gmail.com">Get&nbsp;In&nbsp;Touch</a>
   </section>
 
   <!-- Features -->
   <section id="features" class="features" aria-label="Core Features">
-    <div class="feature-card">
-      <div class="feature-title">Real-Time Market Scanning</div>
-      <div class="feature-desc">AI constantly monitors global equities and surfaces actionable signals instantly.</div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-title">Smart Trade Execution</div>
-      <div class="feature-desc">Micro-structure-aware routing for optimal fills, razor-thin spreads, minimal slippage.</div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-title">Custom Algorithms</div>
-      <div class="feature-desc">Design, back-test, and deploy bespoke strategies aligned to your exact risk profile.</div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-title">Backtested Signals</div>
-      <div class="feature-desc">Billions of simulations ensure each signal is statistically robust and performance-validated.</div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-title">Retail-First, Pro-Grade</div>
-      <div class="feature-desc">Institutional-class tech and discipline delivered through a platform built for individuals.</div>
-    </div>
+    <div class="card"><h3>Real-Time Scanning</h3><p>AI monitors global equities and surfaces actionable signals instantly.</p></div>
+    <div class="card"><h3>Smart Execution</h3><p>Micro-structure-aware routing for optimal fills and reduced slippage.</p></div>
+    <div class="card"><h3>Custom Algorithms</h3><p>Design, back-test, and deploy bespoke strategies aligned to your risk profile.</p></div>
+    <div class="card"><h3>Backtested Signals</h3><p>Billions of simulations ensure each trigger is statistically robust.</p></div>
+    <div class="card"><h3>Retail-First, Pro-Grade</h3><p>Institutional-class tech and discipline delivered through a platform for individuals.</p></div>
   </section>
 
   <!-- About -->
-  <section id="about" class="features" aria-label="About AlgoSnipe AI">
-    <div class="feature-card" style="max-width:900px;margin:auto;text-align:center;">
-      <div class="feature-title" style="font-size:1.4em;">About&nbsp;Us</div>
-      <div class="feature-desc" style="font-size:1em;">
-        AlgoSnipe AI democratizes advanced trading tech. We empower traders with tools and execution once reserved for elite institutions.<br><br>
-        <a href="mailto:AlgoSnipeAI@gmail.com" class="hero-cta" style="margin-top:18px;">Contact&nbsp;Us</a>
-      </div>
+  <section id="about">
+    <div class="card" style="margin:auto;max-width:820px;text-align:center;">
+      <h3 style="font-size:1.4em;">About&nbsp;Us</h3>
+      <p style="font-size:1.05em;">AlgoSnipe AI democratizes advanced trading technology, empowering traders with tools and execution quality once reserved for elite institutions.<br><br>
+        <a class="btn" href="mailto:AlgoSnipeAI@gmail.com" style="padding:12px 36px;">Contact&nbsp;Us</a>
+      </p>
     </div>
   </section>
 
-  <footer>&copy; 2025 AlgoSnipe AI. All rights reserved.</footer>
+  <footer>&copy; 2025&nbsp;AlgoSnipe&nbsp;AI. All&nbsp;rights&nbsp;reserved.</footer>
+
 </body>
 </html>
