@@ -2,133 +2,220 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AlgoSnipe AI</title>
-  <link href="https://fonts.googleapis.com/css?family=Inter:400,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,700&display=swap" rel="stylesheet" />
   <style>
     html, body {
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0;
       font-family: 'Inter', sans-serif;
-      background: white;
-      color: black;
+      background: transparent;
+      color: white;
       overflow-x: hidden;
+      height: 100%;
     }
 
     #yt-bg {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
       object-fit: cover;
       z-index: -1;
-      opacity: 0.1; /* subtle video visibility */
+      opacity: 0.18;
       pointer-events: none;
-    }
-
-    nav, .hero, .features, footer, section, .feature-card {
-      background: transparent !important;
-      border: none !important;
-      box-shadow: none !important;
     }
 
     nav {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 1em 2em;
+      padding: 0 40px;
+      height: 64px;
       position: fixed;
-      top: 0;
+      top: 0; left: 0;
       width: 100%;
-      z-index: 2;
+      background: rgba(14, 16, 18, 0.92);
+      z-index: 10;
+      box-sizing: border-box;
+      border-bottom: 1px solid #222;
     }
-
     .nav-logo {
       font-size: 1.4em;
       font-weight: 700;
-      color: black;
+      letter-spacing: 1px;
+      color: #00fff7;
       text-decoration: none;
+      margin-right: auto;
     }
-
     nav ul {
       list-style: none;
+      margin: 0; padding: 0;
       display: flex;
-      gap: 2em;
-      margin: 0;
-      padding: 0;
+      gap: 32px;
+      align-items: center;
     }
-
+    nav ul li {
+      display: inline;
+    }
     nav ul li a {
-      color: black;
+      color: white;
       text-decoration: none;
       font-weight: 500;
+      font-size: 1em;
+    }
+    nav ul li:last-child {
+      margin-left: auto;
+    }
+    nav ul li a:hover,
+    nav ul li a:focus {
+      color: #00fff7;
     }
 
-    .hero {
-      padding-top: 120px;
+    section.hero {
+      padding: 140px 20px 60px;
       text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 5;
+    }
+
+    .hero-logo {
+      width: 100px;
+      margin: 0 auto 30px;
+      display: block;
     }
 
     .hero-title {
-      font-size: 3em;
+      font-size: 3.5em;
       font-weight: 700;
-      color: black;
+      margin: 0 0 18px;
+      line-height: 1.1;
+      letter-spacing: -2px;
+      color: white;
     }
 
     .hero-subtitle {
-      font-size: 1.4em;
-      color: #333;
-      max-width: 600px;
-      margin: 0 auto 2em auto;
+      font-size: 1.3em;
+      margin-bottom: 38px;
+      color: #d5d5d5;
+      line-height: 1.4;
     }
 
     .hero-cta {
-      background: black;
-      color: white;
-      padding: 1em 2em;
+      display: inline-block;
+      background: #00fff7;
+      color: #000;
+      font-weight: bold;
+      font-size: 1.1em;
+      padding: 16px 44px;
       border-radius: 8px;
       text-decoration: none;
-      font-weight: bold;
+      box-shadow: 0 2px 24px 0 rgba(0, 255, 247, 0.14);
+      transition: background 0.2s, color 0.2s;
+    }
+    .hero-cta:hover,
+    .hero-cta:focus {
+      background: #0ff;
+      color: #111;
     }
 
-    .features {
-      padding: 4em 2em;
+    section.features {
+      padding: 80px 20px 60px;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 2em;
+      gap: 36px;
+      position: relative;
+      z-index: 5;
     }
-
     .feature-card {
+      background: rgba(22, 24, 27, 0.75);
+      border-radius: 14px;
+      padding: 36px 32px;
       width: 300px;
-      color: black;
+      margin: 10px;
+      box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.35);
+      text-align: left;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      min-width: 260px;
+      flex: 1 1 300px;
+      max-width: 340px;
+      color: white;
     }
-
     .feature-title {
       font-size: 1.25em;
       font-weight: 700;
       margin-bottom: 10px;
+      color: #00fff7;
     }
-
     .feature-desc {
       font-size: 1em;
-      color: #444;
+      line-height: 1.6;
+      color: #ccc;
+    }
+
+    section#about.features {
+      background: transparent;
+      max-width: 900px;
+      margin: 0 auto 80px;
+      text-align: center;
+      z-index: 5;
+    }
+    #about .feature-card {
+      background: rgba(22, 24, 27, 0.6);
+      padding: 40px 32px;
+      max-width: 100%;
+    }
+    #about .feature-title {
+      font-size: 1.6em;
+      margin-bottom: 20px;
+    }
+    #about .feature-desc {
+      font-size: 1.1em;
+      color: #ddd;
     }
 
     footer {
+      background: transparent;
+      color: #888;
+      font-size: 1em;
       text-align: center;
-      padding: 2em;
-      color: #666;
-      font-size: 0.9em;
+      padding: 28px 10px 20px;
+      margin-top: auto;
+      position: relative;
+      z-index: 5;
+    }
+
+    @media (max-width: 900px) {
+      .hero-title {
+        font-size: 2.1em;
+      }
+      .hero-subtitle {
+        font-size: 1.1em;
+      }
+      section.features {
+        flex-direction: column;
+        align-items: center;
+      }
+      .feature-card {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        padding: 0 10px;
+      }
+      section.hero {
+        padding-top: 100px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Fullscreen video background -->
-  <video id="yt-bg" muted playsinline loop>
-    <source src="https://algosnipeai.github.io/website/12647214_1920_1080_30fps.mp4" type="video/mp4">
+  <video id="yt-bg" muted playsinline autoplay loop>
+    <source src="https://algosnipeai.github.io/website/12647214_1920_1080_30fps.mp4" type="video/mp4" />
     Your browser does not support the video tag.
   </video>
 
@@ -142,60 +229,56 @@
   </nav>
 
   <section class="hero">
-    <h1 class="hero-title">AI-Driven Trading. Precision. Speed.</h1>
-    <p class="hero-subtitle">
-      Built for Modern Markets.<br>
-      Harness advanced AI, machine learning, and market microstructure to snipe opportunities and execute risk-managed trades with institution-grade performance—made for retail investors.
-    </p>
-    <a class="hero-cta" href="mailto:contact@algosnipe.ai">Get In Touch</a>
+    <img src="https://algosnipeai.github.io/website/logo.png" alt="AlgoSnipe AI Logo" class="hero-logo" />
+    <div>
+      <h1 class="hero-title">AI-Driven Trading. Precision. Speed. Zero Emotion.</h1>
+      <p class="hero-subtitle">
+        Built for Modern Markets.<br />
+        Harness advanced AI, machine learning, and market microstructure to snipe opportunities and execute risk-managed trades with institution-grade performance—made for retail investors.
+      </p>
+      <a class="hero-cta" href="mailto:contact@algosnipe.ai">Get In Touch</a>
+    </div>
   </section>
 
   <section id="features" class="features" aria-label="Core Features">
     <div class="feature-card">
       <div class="feature-title">Real-Time Market Scanning</div>
-      <div class="feature-desc">Leverage AI to monitor global equity markets and identify actionable signals as they emerge.</div>
+      <div class="feature-desc">
+        Leverage AI to monitor global equity markets and identify actionable signals as they emerge.
+      </div>
     </div>
     <div class="feature-card">
-      <div class="feature-title">Smart Trade Execution</div>
-      <div class="feature-desc">Deploy intelligent order routing and microstructure-aware strategies for optimal fills and reduced slippage.</div>
+      <div class="feature-title">Advanced Trade Execution</div>
+      <div class="feature-desc">
+        Deploy advanced order types, intelligent order routing and microstructure-aware strategies for optimal fills and reduced slippage.
+      </div>
     </div>
     <div class="feature-card">
       <div class="feature-title">Custom Algorithms</div>
-      <div class="feature-desc">Develop, test, and deploy custom trading algorithms tailored to your unique risk and return profile.</div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-title">Backtested Signal Generation</div>
-      <div class="feature-desc">Robust backtesting and optimization ensure strategies are data-driven and performance-validated.</div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-title">Retail-First, Pro-Grade</div>
-      <div class="feature-desc">Enjoy institutional technology and discipline, delivered through a platform designed for retail investors.</div>
-    </div>
-  </section>
-
-  <section id="about" class="features" aria-label="About AlgoSnipe AI">
-    <div class="feature-card" style="max-width:900px; width:100%; text-align:center; margin:auto;">
-      <div class="feature-title" style="font-size:1.6em;">About Us</div>
-      <div class="feature-desc" style="font-size:1.1em;">
-        AlgoSnipe AI was founded to democratize access to advanced trading technology. Our mission is to empower individuals with the tools, intelligence, and execution quality once reserved for [...]
-        <br><br>
-        <a href="mailto:contact@algosnipe.ai" class="hero-cta" style="margin-top:20px;">Contact Us</a>
+      <div class="feature-desc">
+        We develop, test, and deploy custom trading algorithms tailored to your unique risk and return profile.
       </div>
     </div>
   </section>
 
-  <footer>
-    &copy; 2025 AlgoSnipe AI. All rights reserved.
-  </footer>
+  <section id="about" class="features" aria-label="About AlgoSnipe AI">
+    <div class="feature-card" style="max-width: 900px; width: 100%; text-align: center; margin: auto;">
+      <div class="feature-title" style="font-size: 1.6em;">About Us</div>
+      <div class="feature-desc" style="font-size: 1.1em;">
+        AlgoSnipe AI was founded to democratize access to advanced trading technology. Our mission is to empower individuals with the tools, intelligence, and execution quality once reserved for [...]
+        <a href="mailto:contact@algosnipe.ai" class="hero-cta" style="margin-top: 20px;">Contact Us</a>
+      </div>
+    </div>
+  </section>
 
-  <!-- JavaScript to autoplay video in Firefox -->
+  <footer>&copy; 2025 AlgoSnipe AI. All rights reserved.</footer>
+
   <script>
+    // For Firefox autoplay fix
     window.addEventListener("load", function () {
       const vid = document.getElementById("yt-bg");
       vid.muted = true;
-      vid.play().catch(err => {
-        console.warn("Autoplay blocked:", err);
-      });
+      vid.play().catch((e) => console.warn("Autoplay blocked:", e));
     });
   </script>
 
