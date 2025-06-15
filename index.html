@@ -68,8 +68,16 @@
       top: 0; left: 0;
       width: 100%; height: 100%;
       object-fit: cover;
-      z-index: -1;
+      z-index: -2;
       pointer-events: none;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(255,255,255,0.35); /* white overlay */
+      z-index: -1;
     }
     .hero .content {
       position: relative;
@@ -136,10 +144,9 @@
       margin-bottom: 6px;
       font-weight: 800;
       letter-spacing: -0.3px;
-      text-shadow: 0 0 2px rgba(0,255,247,0.25),
-                   0 0 4px rgba(0,255,247,0.2);
+      text-shadow: 0 0 1px rgba(0,255,247,0.2),
+                   0 0 2px rgba(0,255,247,0.15);
     }
-
     .card p {
       color: var(--text-muted);
       font-size: 0.95em;
