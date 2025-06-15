@@ -50,19 +50,12 @@
     }
 
     .nav-logo {
-      padding: 4px 8px;
-      background: transparent;
-      border-radius: 6px;
       display: flex;
       align-items: center;
-      transition: background-color 0.3s ease;
+      height: 40px;
     }
-    .nav-logo:hover {
-      background-color: rgba(0, 0, 0, 0.05);
-    }
-
     .nav-logo img {
-      height: 36px;
+      height: 32px;
       width: auto;
       display: block;
       border-radius: 4px;
@@ -74,12 +67,20 @@
       gap: 2em;
       margin: 0;
       padding: 0;
+      align-items: center;
+    }
+
+    nav ul li {
+      display: flex;
+      align-items: center;
     }
 
     nav ul li a {
       color: black;
       text-decoration: none;
       font-weight: 500;
+      line-height: 1;
+      padding-top: 6px;
     }
 
     .hero {
@@ -145,7 +146,7 @@
     }
 
     #about {
-      margin-top: 1rem !important;
+      margin-top: 0 !important; /* moved up */
       padding-top: 0 !important;
     }
 
