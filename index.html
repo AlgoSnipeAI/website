@@ -49,11 +49,23 @@
       color: black;
     }
 
-    /* Logo image styling */
+    .nav-logo {
+      padding: 4px 8px;
+      background: transparent;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      transition: background-color 0.3s ease;
+    }
+    .nav-logo:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+
     .nav-logo img {
-      height: 40px;
+      height: 36px;
       width: auto;
       display: block;
+      border-radius: 4px;
     }
 
     nav ul {
@@ -168,9 +180,9 @@
   </video>
 
   <nav role="navigation">
-    <div class="nav-logo">
+    <a class="nav-logo" href="#">
       <img src="https://raw.githubusercontent.com/AlgoSnipeAI/website/main/mainLogo.png" alt="AlgoSnipe AI Logo" />
-    </div>
+    </a>
     <ul>     
       <li><a href="mailto:AlgoSnipeAI@gmail.com">Contact</a></li>      
     </ul>
