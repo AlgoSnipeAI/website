@@ -125,15 +125,19 @@
     }
 
     .feature-card {
-      max-width: 300px;
-      margin: 0;
-      padding: 0 1rem;
-      overflow-wrap: break-word;
+    max-width: 300px;
+    margin: 0;
+    padding: 0 1rem;
+    overflow-wrap: break-word;
+  
+    display: flex;
+    flex-direction: column;
+    /* Remove min-height or reduce it */
+    /* min-height: 320px; */
+    min-height: unset;
+    padding-bottom: 1.5rem; /* keep some bottom spacing */
+  }
 
-      display: flex;
-      flex-direction: column;
-      min-height: 320px;
-    }
 
     .feature-title {
       font-size: 1.2em;
