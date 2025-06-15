@@ -1,62 +1,289 @@
-.hero {
-  padding-top: 120px; /* reduced from 200px */
-  padding-bottom: 40px; /* reduced */
-  text-align: center;
-  position: relative;
-  z-index: 1;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AlgoSnipe AI</title>
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,700&display=swap" rel="stylesheet" />
+  <style>
+    html, body {
+      margin: 0; padding: 0;
+      font-family: 'Inter', sans-serif;
+      background: transparent;
+      color: white;
+      overflow-x: hidden;
+      height: 100vh;
+      overflow-y: hidden; /* prevent vertical scroll */
+    }
 
-.hero-title {
-  font-size: 3em;
-}
+    /* Fullscreen Video Background */
+    #bg-video {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      object-fit: cover;
+      z-index: -2;
+      opacity: 0.9;
+      pointer-events: none;
+    }
 
-.hero-subtitle {
-  font-size: 1.2em;
-  max-width: 600px;
-  margin: 0 auto 1.5em auto;
-}
+    /* Light Overlay */
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.08);
+      z-index: -1;
+    }
 
-.features {
-  padding: 40px 0; /* reduced */
-}
+    nav,
+    .hero,
+    .features,
+    footer {
+      background: transparent !important;
+    }
 
-.feature-card {
-  max-width: 280px; /* slightly smaller */
-  margin-bottom: 0;
-  padding: 10px 15px;
-}
+    * {
+      color: white !important;
+      box-sizing: border-box;
+    }
 
-.feature-grid {
-  display: flex;
-  flex-wrap: nowrap; /* force single row */
-  justify-content: space-between;
-  gap: 1rem;
-  align-items: flex-start;
-  flex-grow: 1;
-}
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
 
-.about-feature {
-  max-width: 320px;
-  flex-grow: 1;
-  text-align: left;
-  margin-left: 1rem;
-}
+    nav {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 1em 1.5rem;
+      position: fixed;
+      top: 0; width: 100%;
+      z-index: 10;
+    }
 
-footer {
-  padding: 1em 0;
-  font-size: 0.8em;
-  color: #ccc !important;
-}
+    .nav-logo {
+      font-size: 1.4em;
+      font-weight: 700;
+      text-decoration: none;
+    }
 
-/* Responsive tweak */
-@media (max-width: 1024px) {
-  .feature-grid {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .about-feature {
-    margin-left: 0;
-    max-width: 100%;
-    text-align: center;
-  }
-}
+    .hero {
+      padding-top: 100px; /* pulled up */
+      padding-bottom: 20px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      max-height: 30vh;
+      overflow: hidden;
+    }
+
+    .hero-title {
+      font-size: 2.8em;
+      font-weight: 700;
+      margin: 0 0 0.3em 0;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1em;
+      max-width: 600px;
+      margin: 0 auto 1em auto;
+      line-height: 1.3;
+    }
+
+    .hero-cta {
+      background: white;
+      color: black !important;
+      padding: 0.8em 1.8em;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.9em;
+    }
+
+    .features {
+      padding: 10px 0 20px 0;
+      height: 45vh;
+      overflow: hidden;
+    }
+
+    .feature-grid {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: flex-start;
+      height: 100%;
+    }
+
+    .feature-card {
+      max-width: 280px;
+      margin: 0;
+      padding: 0 0.5rem;
+      overflow-wrap: break-word;
+    }
+
+    .feature-title {
+      font-size: 1.2em;
+      font-weight: 700;
+      margin-bottom: 0.4em;
+    }
+
+    .feature-desc {
+      font-size: 0.9em;
+      color: #ddd;
+      line-height: 1.3;
+    }
+
+    .about-feature {
+      max-width: 320px;
+      flex-grow: 1;
+      text-align: left;
+      margin-left: 1rem;
+      font-size: 0.95em;
+      line-height: 1.3;
+    }
+
+    .about-feature .hero-cta {
+      margin-top: 0.6em;
+      font-size: 0.9em;
+      padding: 0.5em 1.4em;
+    }
+
+    footer {
+      text-align: center;
+      padding: 0.5em 0;
+      font-size: 0.75em;
+      color: #ccc !important;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: transparent !important;
+      z-index: 10;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .feature-grid {
+        flex-wrap: wrap;
+        justify-content: center;
+        height: auto;
+      }
+      .about-feature {
+        margin-left: 0;
+        max-width: 100%;
+        text-align: center;
+        margin-top: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 2em;
+      }
+      .hero-subtitle {
+        font-size: 1em;
+        max-width: 100%;
+      }
+      .hero-cta {
+        font-size: 0.85em;
+        padding: 0.6em 1.2em;
+      }
+      .feature-card {
+        max-width: 100%;
+        padding: 0 0.5rem;
+      }
+      .feature-grid {
+        flex-direction: column;
+        height: auto;
+      }
+      .about-feature {
+        margin: 1rem 0 0 0;
+      }
+      footer {
+        font-size: 0.7em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Video -->
+  <video id="bg-video" autoplay muted loop playsinline preload="auto">
+    <source src="https://algosnipeai.github.io/website/18743334-hd_1920_1080_60fps.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Overlay -->
+  <div class="overlay"></div>
+
+  <nav role="navigation">
+    <a class="nav-logo" href="#">AlgoSnipe AI</a>
+  </nav>
+
+  <section class="hero">
+    <div class="container">
+      <h1 class="hero-title">AI-Driven Trading. Precision. Speed. Zero Emotion.</h1>
+      <p class="hero-subtitle">
+        Built for Modern Markets.<br />
+        Harness advanced AI, machine learning, and market microstructure to snipe opportunities and execute risk-managed trades with institution-grade performance—made for retail investors.
+      </p>
+      <a class="hero-cta" href="mailto:contact@algosnipe.ai">Get In Touch</a>
+    </div>
+  </section>
+
+  <section id="features" class="features" aria-label="Core Features">
+    <div class="container">
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-title">Real-Time Market Scanning</div>
+          <div class="feature-desc">Leverage AI to monitor global equity markets and identify actionable signals as they emerge.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-title">Smart Trade Execution</div>
+          <div class="feature-desc">Deploy intelligent order routing and microstructure-aware strategies for optimal fills and reduced slippage.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-title">Custom Algorithms</div>
+          <div class="feature-desc">Develop, test, and deploy custom trading algorithms tailored to your unique risk and return profile.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-title">Backtested Signal Generation</div>
+          <div class="feature-desc">Robust backtesting and optimization ensure strategies are data-driven and performance-validated.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-title">Retail-First, Pro-Grade</div>
+          <div class="feature-desc">Enjoy institutional technology and discipline, delivered through a platform designed for retail investors.</div>
+        </div>
+
+        <!-- About Us inline with blurbs -->
+        <div class="feature-card about-feature">
+          <div class="feature-title">About Us</div>
+          <div class="feature-desc">
+            AlgoSnipe AI was founded to democratize access to advanced trading technology. Our mission is to empower individuals with the tools, intelligence, and execution quality once reserved for institutions.
+            <br /><br />
+            <a href="mailto:contact@algosnipe.ai" class="hero-cta">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">&copy; 2025 AlgoSnipe AI. All rights reserved.</div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const vid = document.getElementById("bg-video");
+      vid.muted = true;
+      vid.play().catch((err) => {
+        console.warn("Autoplay failed:", err);
+      });
+    });
+  </script>
+
+</body>
+</html>
