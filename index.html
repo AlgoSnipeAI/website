@@ -16,16 +16,16 @@
     }
 
     .container {
-      max-width: 800px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 0 1.25rem;
+      padding: 0 1.5rem;
     }
 
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1em 1.25rem;
+      padding: 1em 1.5rem;
       position: fixed;
       top: 0;
       width: 100%;
@@ -83,14 +83,15 @@
     }
 
     .hero-title {
-      font-size: 2.6em;
+      font-size: 3em;
       font-weight: 700;
       color: black;
     }
 
     .hero-subtitle {
-      font-size: 1.2em;
+      font-size: 1.4em;
       color: black;
+      max-width: 700px;
       margin: 0 auto 2em auto;
     }
 
@@ -108,8 +109,9 @@
       background: white;
     }
 
-    .features .feature-card {
+    .feature-card {
       width: 100%;
+      max-width: 320px;
       margin-bottom: 2rem;
     }
 
@@ -126,7 +128,8 @@
 
     .feature-grid {
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 2rem;
     }
 
@@ -162,9 +165,8 @@
 </head>
 <body>
 
-  <!-- 🎥 Video bar -->
   <div class="video-container">
-    <video id="yt-bg" autoplay muted playsinline loop>
+    <video id="yt-bg" autoplay muted loop playsinline preload="auto">
       <source src="https://algosnipeai.github.io/website/18743334-hd_1920_1080_60fps.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
@@ -237,12 +239,11 @@
   </footer>
 
   <script>
-    // Force video to play after load in all browsers
-    window.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", function () {
       const vid = document.getElementById("yt-bg");
       vid.muted = true;
       vid.play().catch(err => {
-        console.warn("Autoplay blocked:", err);
+        console.warn("Autoplay failed:", err);
       });
     });
   </script>
