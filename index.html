@@ -16,11 +16,13 @@
       overflow-y: auto;
     }
 
-    /* Fullscreen Video Background */
+    /* Fullscreen Video Background - offset below nav */
     #bg-video {
       position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
+      top: 56px; /* height of nav bar */
+      left: 0;
+      width: 100vw;
+      height: calc(100vh - 56px);
       object-fit: cover;
       z-index: -2;
       opacity: 0.9;
@@ -30,8 +32,10 @@
     /* Light Overlay */
     .overlay {
       position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
+      top: 56px; /* same offset as video */
+      left: 0;
+      width: 100vw;
+      height: calc(100vh - 56px);
       background: rgba(0,0,0,0.08);
       z-index: -1;
     }
@@ -40,9 +44,10 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1em 3rem 1em 1.5rem; /* increased right padding */
+      padding: 1em 3rem 1em 1.5rem;
       position: fixed;
       top: 0; width: 100%;
+      height: 56px;
       z-index: 10;
       background: transparent !important;
       color: white;
@@ -70,7 +75,6 @@
       text-align: center;
       overflow: hidden;
       text-overflow: ellipsis;
-      /* Ensure it does not get cut off */
       min-width: 100px;
       box-sizing: border-box;
     }
@@ -84,7 +88,7 @@
     }
 
     .hero-text-wrapper {
-      margin: 140px auto 60px auto;
+      margin: 100px auto 60px auto; /* reduced top margin to account for nav */
       max-width: 80vw;
       text-align: center;
       color: white;
@@ -107,10 +111,10 @@
       color: white;
     }
 
-    /* Shaded bar behind bottom tiles - moved down */
+    /* Shaded bar behind bottom tiles */
     .features-bg-bar {
       position: absolute;
-      top: 460px; /* increased from 340px to 460px */
+      top: 460px;
       left: 0;
       width: 100vw;
       height: calc(100% - 460px);
@@ -135,7 +139,6 @@
       padding: 1.5rem;
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-      min-height: 220px;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
@@ -259,7 +262,6 @@
           <div class="feature-title">About Us</div>
           <div class="feature-desc">
             AlgoSnipe AI was founded to democratize access to advanced trading technology. Our mission is to empower individuals with the tools, intelligence, and execution quality once reserved for institutions.
-            <a href="mailto:AlgoSnipeAI@gmail.com" class="hero-cta">Contact Us</a>
           </div>
         </div>
       </div>
