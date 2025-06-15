@@ -13,238 +13,272 @@
       color: white;
       overflow-x: hidden;
       height: 100%;
-      overflow-y: auto;
     }
 
-    /* Fullscreen Video Background starts below nav */
-    #bg-video {
+    #yt-bg {
       position: fixed;
-      top: 60px; /* below nav */
-      left: 0;
-      width: 100vw; height: calc(100vh - 60px);
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
       object-fit: cover;
-      z-index: -2;
-      opacity: 0.9;
-      pointer-events: none;
-    }
-
-    /* Light Overlay */
-    .overlay {
-      position: fixed;
-      top: 60px; /* below nav */
-      left: 0;
-      width: 100vw; height: calc(100vh - 60px);
-      background: rgba(0,0,0,0.08);
       z-index: -1;
+      opacity: 0.18;
+      pointer-events: none;
     }
 
     nav {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 0.5rem 1.5rem;
+      padding: 0 40px;
+      height: 64px;
       position: fixed;
-      top: 0; width: 100%;
-      height: 60px;
-      background: url('https://github.com/AlgoSnipeAI/website/raw/main/navBackground.png') no-repeat center/cover;
+      top: 0; left: 0;
+      width: 100%;
+      background: rgba(14, 16, 18, 0.92);
       z-index: 10;
+      box-sizing: border-box;
+      border-bottom: 1px solid #222;
     }
-
     .nav-logo {
-      height: 40px;
-      width: auto;
-      object-fit: contain;
+      font-size: 1.4em;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #00fff7;
+      text-decoration: none;
+      margin-right: auto;
     }
-
-    .nav-right {
+    nav ul {
+      list-style: none;
+      margin: 0; padding: 0;
       display: flex;
+      gap: 32px;
       align-items: center;
     }
-
-    .hero-cta {
-      padding: 0.5em 1.2em;
-      font-weight: bold;
-      font-size: 1em;
-      background: white;
-      color: black !important;
-      border-radius: 8px;
-      text-decoration: none;
-      user-select: none;
-      cursor: pointer;
-      margin-left: 1rem;
-      white-space: nowrap;
+    nav ul li {
+      display: inline;
     }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
-
-    .hero {
-      padding-top: 80px; /* account for fixed nav */
-      padding-bottom: 60px;
-      text-align: center;
-      position: relative;
-      z-index: 1;
+    nav ul li a {
       color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1em;
+    }
+    nav ul li:last-child {
+      margin-left: auto;
+    }
+    nav ul li a:hover,
+    nav ul li a:focus {
+      color: #00fff7;
+    }
+
+    section.hero {
+      padding: 140px 20px 60px;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 5;
+    }
+
+    .hero-logo {
+      width: 100px;
+      margin: 0 auto 30px;
+      display: block;
     }
 
     .hero-title {
       font-size: 3.5em;
       font-weight: 700;
-      margin: 0 0 0.3em 0;
+      margin: 0 0 18px;
+      line-height: 1.1;
+      letter-spacing: -2px;
       color: white;
     }
 
     .hero-subtitle {
-      font-size: 1.4em;
-      max-width: 700px;
-      margin: 0 auto 1em auto;
-      line-height: 1.3;
-      /* no background */
+      font-size: 1.3em;
+      margin-bottom: 38px;
+      color: #d5d5d5;
+      line-height: 1.4;
     }
 
-    /* Features grid container */
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-gap: 2rem 1.5rem;
-      padding: 2rem 0;
-      max-width: 100vw;
+    .hero-cta {
+      display: inline-block;
+      background: #00fff7;
+      color: #000;
+      font-weight: bold;
+      font-size: 1.1em;
+      padding: 16px 44px;
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 2px 24px 0 rgba(0, 255, 247, 0.14);
+      transition: background 0.2s, color 0.2s;
+    }
+    .hero-cta:hover,
+    .hero-cta:focus {
+      background: #0ff;
+      color: #111;
     }
 
-    .feature-card {
-      background: rgba(0, 0, 0, 0.6);
-      padding: 1rem 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    section.features {
+      padding: 80px 20px 60px;
       display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      /* height fits content */
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 36px;
+      position: relative;
+      z-index: 5;
     }
-
+    .feature-card {
+      background: rgba(22, 24, 27, 0.75);
+      border-radius: 14px;
+      padding: 36px 32px;
+      width: 300px;
+      margin: 10px;
+      box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.35);
+      text-align: left;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      min-width: 260px;
+      flex: 1 1 300px;
+      max-width: 340px;
+      color: white;
+    }
     .feature-title {
       font-size: 1.25em;
       font-weight: 700;
-      margin-bottom: 0.75rem;
+      margin-bottom: 10px;
+      color: #00fff7;
     }
-
     .feature-desc {
       font-size: 1em;
-      line-height: 1.4;
-      color: #eee;
-      flex-grow: 1;
+      line-height: 1.6;
+      color: #ccc;
+    }
+
+    section#about.features {
+      background: transparent;
+      max-width: 900px;
+      margin: 0 auto 80px;
+      text-align: center;
+      z-index: 5;
+    }
+    #about .feature-card {
+      background: rgba(22, 24, 27, 0.6);
+      padding: 40px 32px;
+      max-width: 100%;
+    }
+    #about .feature-title {
+      font-size: 1.6em;
+      margin-bottom: 20px;
+    }
+    #about .feature-desc {
+      font-size: 1.1em;
+      color: #ddd;
     }
 
     footer {
+      background: transparent;
+      color: #888;
+      font-size: 1em;
       text-align: center;
-      padding: 1.5em 0;
-      font-size: 0.75em;
-      color: #ccc !important;
-      position: static;
-      width: 100%;
-      z-index: 10;
-      background: transparent !important;
+      padding: 28px 10px 20px;
+      margin-top: auto;
+      position: relative;
+      z-index: 5;
     }
 
-    @media (max-width: 1024px) {
-      .feature-grid {
-        grid-template-columns: repeat(2, 1fr);
-        grid-gap: 1.5rem 1rem;
+    @media (max-width: 900px) {
+      .hero-title {
+        font-size: 2.1em;
+      }
+      .hero-subtitle {
+        font-size: 1.1em;
+      }
+      section.features {
+        flex-direction: column;
+        align-items: center;
+      }
+      .feature-card {
+        max-width: 100%;
       }
     }
 
     @media (max-width: 600px) {
-      .hero-title {
-        font-size: 2em;
+      nav {
+        padding: 0 10px;
       }
-      .hero-subtitle {
-        font-size: 1em;
-        max-width: 100%;
-      }
-      .feature-grid {
-        grid-template-columns: 1fr;
-        grid-gap: 1rem 0;
+      section.hero {
+        padding-top: 100px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Navigation Bar -->
-  <nav role="navigation">
-    <img class="nav-logo" src="mainLogo.png" alt="AlgoSnipe AI Logo" />
-    <div class="nav-right">
-      <a href="mailto:AlgoSnipeAI@gmail.com" class="hero-cta">Contact Us</a>
-    </div>
-  </nav>
-
-  <!-- Background Video -->
-  <video id="bg-video" autoplay muted loop playsinline preload="auto">
-    <source src="https://algosnipeai.github.io/website/18743334-hd_1920_1080_60fps.mp4" type="video/mp4" />
+  <video id="yt-bg" muted playsinline autoplay loop>
+    <source src="https://algosnipeai.github.io/website/12647214_1920_1080_30fps.mp4" type="video/mp4" />
     Your browser does not support the video tag.
   </video>
 
-  <!-- Overlay -->
-  <div class="overlay"></div>
+  <nav role="navigation">
+    <a class="nav-logo" href="#">AlgoSnipe AI</a>
+    <ul>
+      <li><a href="#features">Features</a></li>
+      <li><a href="mailto:contact@algosnipe.ai">Contact</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+  </nav>
 
   <section class="hero">
-    <div class="container">
-      <img src="mainLogo.png" alt="AlgoSnipe AI Logo" style="height:80px; margin-bottom:1rem;" />
+    <img src="https://algosnipeai.github.io/website/logo.png" alt="AlgoSnipe AI Logo" class="hero-logo" />
+    <div>
       <h1 class="hero-title">AI-Driven Trading. Precision. Speed. Zero Emotion.</h1>
       <p class="hero-subtitle">
         Built for Modern Markets.<br />
         Harness advanced AI, machine learning, and market microstructure to snipe opportunities and execute risk-managed trades with institution-grade performance—made for retail investors.
       </p>
+      <a class="hero-cta" href="mailto:contact@algosnipe.ai">Get In Touch</a>
     </div>
   </section>
 
   <section id="features" class="features" aria-label="Core Features">
-    <div class="container">
-      <div class="feature-grid" aria-label="Trading features and about us">
-        <div class="feature-card">
-          <div class="feature-title">Real-Time Market Scanning</div>
-          <div class="feature-desc">Leverage AI to monitor global equity markets and identify actionable signals as they emerge.</div>
-        </div>
-        <div class="feature-card">
-          <div class="feature-title">Advanced Trade Execution</div>
-          <div class="feature-desc">Deploy advanced order types, intelligent order routing and microstructure-aware strategies for optimal fills and reduced slippage.</div>
-        </div>
-        <div class="feature-card">
-          <div class="feature-title">Custom Algorithms</div>
-          <div class="feature-desc">We develop, test, and deploy custom trading algorithms tailored to your unique risk and return profile.</div>
-        </div>
-        <div class="feature-card">
-          <div class="feature-title">Backtested Signal Generation</div>
-          <div class="feature-desc">Robust backtesting and optimization ensure strategies are data-driven and performance-validated.</div>
-        </div>
-        <div class="feature-card">
-          <div class="feature-title">Retail-First, Pro-Grade</div>
-          <div class="feature-desc">Enjoy institutional technology and discipline, delivered through a platform designed for retail investors.</div>
-        </div>
-        <div class="feature-card about-feature">
-          <div class="feature-title">About Us</div>
-          <div class="feature-desc">
-            AlgoSnipe AI was founded to democratize access to advanced trading technology. Our mission is to empower individuals with the tools, intelligence, and execution quality once reserved for institutions.
-          </div>
-        </div>
+    <div class="feature-card">
+      <div class="feature-title">Real-Time Market Scanning</div>
+      <div class="feature-desc">
+        Leverage AI to monitor global equity markets and identify actionable signals as they emerge.
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-title">Advanced Trade Execution</div>
+      <div class="feature-desc">
+        Deploy advanced order types, intelligent order routing and microstructure-aware strategies for optimal fills and reduced slippage.
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-title">Custom Algorithms</div>
+      <div class="feature-desc">
+        We develop, test, and deploy custom trading algorithms tailored to your unique risk and return profile.
       </div>
     </div>
   </section>
 
-  <footer>
-    <div class="container">&copy; 2025 AlgoSnipe AI. All rights reserved.</div>
-  </footer>
+  <section id="about" class="features" aria-label="About AlgoSnipe AI">
+    <div class="feature-card" style="max-width: 900px; width: 100%; text-align: center; margin: auto;">
+      <div class="feature-title" style="font-size: 1.6em;">About Us</div>
+      <div class="feature-desc" style="font-size: 1.1em;">
+        AlgoSnipe AI was founded to democratize access to advanced trading technology. Our mission is to empower individuals with the tools, intelligence, and execution quality once reserved for [...]
+        <a href="mailto:contact@algosnipe.ai" class="hero-cta" style="margin-top: 20px;">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>&copy; 2025 AlgoSnipe AI. All rights reserved.</footer>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const vid = document.getElementById("bg-video");
+    // For Firefox autoplay fix
+    window.addEventListener("load", function () {
+      const vid = document.getElementById("yt-bg");
       vid.muted = true;
-      vid.play().catch((err) => {
-        console.warn("Autoplay failed:", err);
-      });
+      vid.play().catch((e) => console.warn("Autoplay blocked:", e));
     });
   </script>
 
