@@ -10,21 +10,9 @@
       margin: 0;
       padding: 0;
       font-family: 'Inter', sans-serif;
-      background: rgba(255, 255, 255, 0.94); /* slightly whitish */
-      color: black;
+      background: rgba(0, 0, 0, 0.9);
+      color: white;
       overflow-x: hidden;
-    }
-
-    #yt-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 40vh;
-      object-fit: cover;
-      z-index: -1;
-      opacity: 1;
-      pointer-events: none;
     }
 
     nav {
@@ -36,14 +24,14 @@
       top: 0;
       width: 100%;
       z-index: 2;
-      background: rgba(255, 255, 255, 0.96);
-      border-bottom: 1px solid #ddd;
+      background: rgba(0, 0, 0, 0.7);
+      border-bottom: 1px solid #333;
     }
 
     .nav-logo {
       font-size: 1.4em;
       font-weight: 700;
-      color: black;
+      color: white;
       text-decoration: none;
     }
 
@@ -56,34 +44,51 @@
     }
 
     nav ul li a {
-      color: black;
+      color: white;
       text-decoration: none;
       font-weight: 500;
     }
 
     .hero {
-      padding-top: 160px;
+      padding-top: 200px;
       padding-bottom: 60px;
       text-align: center;
       background: transparent;
     }
 
+    .video-container {
+      position: absolute;
+      top: 64px; /* below navbar */
+      left: 0;
+      width: 100%;
+      height: 40vh;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .video-container video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
     .hero-title {
       font-size: 3em;
       font-weight: 700;
-      color: black;
+      color: white;
     }
 
     .hero-subtitle {
       font-size: 1.4em;
-      color: black;
+      color: white;
       max-width: 600px;
       margin: 0 auto 2em auto;
     }
 
     .hero-cta {
-      background: black;
-      color: white;
+      background: white;
+      color: black;
       padding: 1em 2em;
       border-radius: 8px;
       text-decoration: none;
@@ -96,12 +101,12 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 2em;
-      background: rgba(255, 255, 255, 0.94);
+      background: rgba(0, 0, 0, 0.7);
     }
 
     .feature-card {
       width: 300px;
-      color: black;
+      color: white;
     }
 
     .feature-title {
@@ -112,24 +117,36 @@
 
     .feature-desc {
       font-size: 1em;
+      color: #ddd;
     }
 
     footer {
       text-align: center;
       padding: 2em;
-      color: black;
+      color: #ccc;
       font-size: 0.9em;
-      background: rgba(255, 255, 255, 0.94);
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    @media (max-width: 600px) {
+      .hero-title {
+        font-size: 2em;
+      }
+      .hero-subtitle {
+        font-size: 1.1em;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- 🎥 Horizontal video bar background (for top of page only) -->
-  <video id="yt-bg" muted playsinline loop>
-    <source src="https://algosnipeai.github.io/website/18743334-hd_1920_1080_60fps.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+  <!-- 🎥 Horizontal video bar -->
+  <div class="video-container">
+    <video id="yt-bg" muted playsinline loop>
+      <source src="https://algosnipeai.github.io/website/18743334-hd_1920_1080_60fps.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
 
   <nav role="navigation">
     <a class="nav-logo" href="#">AlgoSnipe AI</a>
@@ -176,7 +193,7 @@
     <div class="feature-card" style="max-width:900px; width:100%; text-align:center; margin:auto;">
       <div class="feature-title" style="font-size:1.6em;">About Us</div>
       <div class="feature-desc" style="font-size:1.1em;">
-        AlgoSnipe AI was founded to democratize access to advanced trading technology. Our mission is to empower individuals with the tools, intelligence, and execution quality once reserved for [...]
+        AlgoSnipe AI was founded to democratize access to advanced trading technology. Our mission is to empower individuals with the tools, intelligence, and execution quality once reserved for institutions.
         <br><br>
         <a href="mailto:contact@algosnipe.ai" class="hero-cta" style="margin-top:20px;">Contact Us</a>
       </div>
@@ -187,7 +204,6 @@
     &copy; 2025 AlgoSnipe AI. All rights reserved.
   </footer>
 
-  <!-- ✅ Fix autoplay for Firefox -->
   <script>
     window.addEventListener("load", function () {
       const vid = document.getElementById("yt-bg");
@@ -197,6 +213,5 @@
       });
     });
   </script>
-
 </body>
 </html>
