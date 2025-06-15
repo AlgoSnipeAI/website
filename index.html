@@ -10,60 +10,59 @@
       margin: 0;
       padding: 0;
       font-family: 'Inter', sans-serif;
-      background: rgba(0, 0, 0, 0.9);
-      color: white;
+      background: white;
+      color: black;
       overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
     }
 
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1em 2em;
+      padding: 1em 1.5rem;
       position: fixed;
       top: 0;
       width: 100%;
-      z-index: 2;
-      background: rgba(0, 0, 0, 0.7);
-      border-bottom: 1px solid #333;
+      z-index: 10;
+      background: white;
+      border-bottom: 1px solid #ddd;
     }
 
     .nav-logo {
       font-size: 1.4em;
       font-weight: 700;
-      color: white;
+      color: black;
       text-decoration: none;
     }
 
     nav ul {
       list-style: none;
       display: flex;
-      gap: 2em;
+      gap: 1.5em;
       margin: 0;
       padding: 0;
     }
 
     nav ul li a {
-      color: white;
+      color: black;
       text-decoration: none;
       font-weight: 500;
     }
 
-    .hero {
-      padding-top: 200px;
-      padding-bottom: 60px;
-      text-align: center;
-      background: transparent;
-    }
-
     .video-container {
       position: absolute;
-      top: 64px; /* below navbar */
+      top: 64px;
       left: 0;
       width: 100%;
       height: 40vh;
       overflow: hidden;
-      z-index: -1;
+      z-index: 0;
     }
 
     .video-container video {
@@ -71,24 +70,34 @@
       height: 100%;
       object-fit: cover;
       display: block;
+      opacity: 0.85;
+    }
+
+    .hero {
+      padding-top: 200px;
+      padding-bottom: 60px;
+      text-align: center;
+      background: transparent;
+      position: relative;
+      z-index: 1;
     }
 
     .hero-title {
       font-size: 3em;
       font-weight: 700;
-      color: white;
+      color: black;
     }
 
     .hero-subtitle {
       font-size: 1.4em;
-      color: white;
-      max-width: 600px;
+      color: black;
+      max-width: 700px;
       margin: 0 auto 2em auto;
     }
 
     .hero-cta {
-      background: white;
-      color: black;
+      background: black;
+      color: white;
       padding: 1em 2em;
       border-radius: 8px;
       text-decoration: none;
@@ -96,17 +105,15 @@
     }
 
     .features {
-      padding: 4em 2em;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2em;
-      background: rgba(0, 0, 0, 0.7);
+      padding: 4em 0;
+      background: white;
     }
 
-    .feature-card {
-      width: 300px;
-      color: white;
+    .features .feature-card {
+      width: 100%;
+      max-width: 320px;
+      margin-bottom: 2rem;
+      flex: 1;
     }
 
     .feature-title {
@@ -117,23 +124,48 @@
 
     .feature-desc {
       font-size: 1em;
-      color: #ddd;
+      color: #333;
+    }
+
+    .feature-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
     }
 
     footer {
+      background: white;
       text-align: center;
-      padding: 2em;
-      color: #ccc;
+      padding: 2em 0;
+      color: black;
       font-size: 0.9em;
-      background: rgba(0, 0, 0, 0.7);
     }
 
-    @media (max-width: 600px) {
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
       .hero-title {
         font-size: 2em;
       }
       .hero-subtitle {
         font-size: 1.1em;
+      }
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav ul {
+        flex-direction: column;
+        gap: 1em;
+        margin-top: 1em;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-cta {
+        display: inline-block;
+        padding: 0.8em 1.5em;
+        font-size: 1em;
       }
     }
   </style>
@@ -157,61 +189,4 @@
     </ul>
   </nav>
 
-  <section class="hero">
-    <h1 class="hero-title">AI-Driven Trading. Precision. Speed.</h1>
-    <p class="hero-subtitle">
-      Built for Modern Markets.<br>
-      Harness advanced AI, machine learning, and market microstructure to snipe opportunities and execute risk-managed trades with institution-grade performance—made for retail investors.
-    </p>
-    <a class="hero-cta" href="mailto:contact@algosnipe.ai">Get In Touch</a>
-  </section>
-
-  <section id="features" class="features" aria-label="Core Features">
-    <div class="feature-card">
-      <div class="feature-title">Real-Time Market Scanning</div>
-      <div class="feature-desc">Leverage AI to monitor global equity markets and identify actionable signals as they emerge.</div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-title">Smart Trade Execution</div>
-      <div class="feature-desc">Deploy intelligent order routing and microstructure-aware strategies for optimal fills and reduced slippage.</div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-title">Custom Algorithms</div>
-      <div class="feature-desc">Develop, test, and deploy custom trading algorithms tailored to your unique risk and return profile.</div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-title">Backtested Signal Generation</div>
-      <div class="feature-desc">Robust backtesting and optimization ensure strategies are data-driven and performance-validated.</div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-title">Retail-First, Pro-Grade</div>
-      <div class="feature-desc">Enjoy institutional technology and discipline, delivered through a platform designed for retail investors.</div>
-    </div>
-  </section>
-
-  <section id="about" class="features" aria-label="About AlgoSnipe AI">
-    <div class="feature-card" style="max-width:900px; width:100%; text-align:center; margin:auto;">
-      <div class="feature-title" style="font-size:1.6em;">About Us</div>
-      <div class="feature-desc" style="font-size:1.1em;">
-        AlgoSnipe AI was founded to democratize access to advanced trading technology. Our mission is to empower individuals with the tools, intelligence, and execution quality once reserved for institutions.
-        <br><br>
-        <a href="mailto:contact@algosnipe.ai" class="hero-cta" style="margin-top:20px;">Contact Us</a>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    &copy; 2025 AlgoSnipe AI. All rights reserved.
-  </footer>
-
-  <script>
-    window.addEventListener("load", function () {
-      const vid = document.getElementById("yt-bg");
-      vid.muted = true;
-      vid.play().catch(err => {
-        console.warn("Autoplay blocked:", err);
-      });
-    });
-  </script>
-</body>
-</html>
+  <section
