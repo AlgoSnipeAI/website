@@ -10,27 +10,21 @@
       margin: 0;
       padding: 0;
       font-family: 'Inter', sans-serif;
-      background: transparent !important;
+      background: rgba(255, 255, 255, 0.94); /* slightly whitish */
       color: black;
       overflow-x: hidden;
     }
 
     #yt-bg {
-      position: fixed;
+      position: absolute;
       top: 0;
       left: 0;
-      width: 100vw;
-      height: 100vh;
+      width: 100%;
+      height: 40vh;
       object-fit: cover;
       z-index: -1;
       opacity: 1;
       pointer-events: none;
-    }
-
-    nav, .hero, .features, footer, section, .feature-card {
-      background: transparent !important;
-      border: none !important;
-      box-shadow: none !important;
     }
 
     nav {
@@ -42,6 +36,8 @@
       top: 0;
       width: 100%;
       z-index: 2;
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid #ddd;
     }
 
     .nav-logo {
@@ -66,8 +62,10 @@
     }
 
     .hero {
-      padding-top: 120px;
+      padding-top: 160px;
+      padding-bottom: 60px;
       text-align: center;
+      background: transparent;
     }
 
     .hero-title {
@@ -98,6 +96,7 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 2em;
+      background: rgba(255, 255, 255, 0.94);
     }
 
     .feature-card {
@@ -120,12 +119,13 @@
       padding: 2em;
       color: black;
       font-size: 0.9em;
+      background: rgba(255, 255, 255, 0.94);
     }
   </style>
 </head>
 <body>
 
-  <!-- ✅ Raw video background -->
+  <!-- 🎥 Horizontal video bar background (for top of page only) -->
   <video id="yt-bg" muted playsinline loop>
     <source src="https://algosnipeai.github.io/website/18743334-hd_1920_1080_60fps.mp4" type="video/mp4">
     Your browser does not support the video tag.
@@ -187,7 +187,7 @@
     &copy; 2025 AlgoSnipe AI. All rights reserved.
   </footer>
 
-  <!-- ✅ Autoplay fix -->
+  <!-- ✅ Fix autoplay for Firefox -->
   <script>
     window.addEventListener("load", function () {
       const vid = document.getElementById("yt-bg");
