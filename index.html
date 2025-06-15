@@ -6,217 +6,128 @@
   <title>AlgoSnipe AI</title>
   <link href="https://fonts.googleapis.com/css?family=Inter:400,700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --primary: #00fff7;
-      --text-main: #fff;
-      --text-muted: #b5b5b5;
-    }
-
     html, body {
-      height: 100%;
       margin: 0;
       padding: 0;
-      font-family: 'Inter', Arial, sans-serif;
-      background: transparent;
-      color: var(--text-main);
-      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+      background: white;
+      color: black;
       overflow-x: hidden;
-    }
-
-    body {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      position: relative;
     }
 
     #yt-bg {
       position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      z-index: 0;
-      pointer-events: none;
-      opacity: 1;
-      border: none;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
       object-fit: cover;
+      z-index: -1;
+      opacity: 0.1; /* subtle video visibility */
+      pointer-events: none;
+    }
+
+    nav, .hero, .features, footer, section, .feature-card {
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
     }
 
     nav {
-      width: 100%;
-      background: transparent;
-      backdrop-filter: brightness(0.5);
-      padding: 0 40px;
-      box-sizing: border-box;
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      height: 64px;
+      padding: 1em 2em;
       position: fixed;
       top: 0;
-      left: 0;
+      width: 100%;
       z-index: 2;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 
     .nav-logo {
       font-size: 1.4em;
       font-weight: 700;
-      letter-spacing: 1px;
-      color: var(--primary);
+      color: black;
       text-decoration: none;
-      margin-right: auto;
     }
 
     nav ul {
       list-style: none;
+      display: flex;
+      gap: 2em;
       margin: 0;
       padding: 0;
-      display: flex;
-      gap: 32px;
-    }
-
-    nav ul li {
-      display: inline;
     }
 
     nav ul li a {
-      color: var(--text-main);
+      color: black;
       text-decoration: none;
       font-weight: 500;
-      font-size: 1em;
-      transition: color 0.2s;
-    }
-
-    nav ul li a:hover,
-    nav ul li a:focus {
-      color: var(--primary);
     }
 
     .hero {
-      min-height: 80vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      padding-top: 120px;
       text-align: center;
-      padding: 140px 20px 60px 20px;
-      position: relative;
-      z-index: 1;
-      background: transparent;
-      backdrop-filter: brightness(0.6);
     }
 
     .hero-title {
-      font-size: 3.5em;
+      font-size: 3em;
       font-weight: 700;
-      margin: 0 0 18px 0;
-      line-height: 1.1;
-      letter-spacing: -2px;
-      color: var(--text-main);
-      max-width: 900px;
-      text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+      color: black;
     }
 
     .hero-subtitle {
-      color: var(--text-muted);
       font-size: 1.4em;
-      margin-bottom: 38px;
-      max-width: 650px;
-      margin-left: auto;
-      margin-right: auto;
-      text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+      color: #333;
+      max-width: 600px;
+      margin: 0 auto 2em auto;
     }
 
     .hero-cta {
-      display: inline-block;
-      background: var(--primary);
-      color: #000;
-      font-weight: bold;
-      font-size: 1.1em;
-      padding: 16px 44px;
+      background: black;
+      color: white;
+      padding: 1em 2em;
       border-radius: 8px;
       text-decoration: none;
-      margin-top: 10px;
-      transition: background 0.2s, color 0.2s;
-      box-shadow: 0 2px 24px 0 rgba(0,255,247,0.14);
-    }
-
-    .hero-cta:hover,
-    .hero-cta:focus {
-      background: #0ff;
-      color: #111;
+      font-weight: bold;
     }
 
     .features {
-      background: transparent;
-      padding: 80px 20px 60px 20px;
+      padding: 4em 2em;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 36px;
-      position: relative;
-      z-index: 1;
-      backdrop-filter: brightness(0.5);
+      gap: 2em;
     }
 
     .feature-card {
-      background: rgba(22, 24, 27, 0.4);
-      border-radius: 14px;
-      padding: 36px 32px;
       width: 300px;
-      margin: 10px;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.3);
-      text-align: left;
-      border: 1px solid rgba(255,255,255,0.1);
-      min-width: 260px;
-      flex: 1 1 300px;
-      max-width: 340px;
+      color: black;
     }
 
     .feature-title {
-      color: var(--primary);
       font-size: 1.25em;
       font-weight: 700;
       margin-bottom: 10px;
     }
 
     .feature-desc {
-      color: var(--text-muted);
       font-size: 1em;
-      line-height: 1.6;
+      color: #444;
     }
 
     footer {
-      background: transparent;
-      backdrop-filter: brightness(0.4);
       text-align: center;
-      padding: 28px 10px 20px 10px;
-      color: #ccc;
-      font-size: 1em;
-      margin-top: auto;
-      z-index: 1;
-      position: relative;
-    }
-
-    @media (max-width: 900px) {
-      .hero-title { font-size: 2.1em; }
-      .hero-subtitle { font-size: 1.1em; }
-      .features { flex-direction: column; align-items: center; }
-    }
-
-    @media (max-width: 600px) {
-      nav { padding: 0 10px; }
-      .feature-card { width: 100%; min-width: unset; max-width: unset; }
-      .hero { padding-top: 100px; }
-    }
-
-    nav, .hero, .features, footer {
-      position: relative;
-      z-index: 1;
+      padding: 2em;
+      color: #666;
+      font-size: 0.9em;
     }
   </style>
 </head>
 <body>
-  <video id="yt-bg" autoplay muted loop playsinline>
+
+  <!-- Fullscreen video background -->
+  <video id="yt-bg" muted playsinline loop>
     <source src="https://algosnipeai.github.io/website/12647214_1920_1080_30fps.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
@@ -231,16 +142,12 @@
   </nav>
 
   <section class="hero">
-    <div>
-      <h1 class="hero-title">
-        AI-Driven Trading. Precision. Speed. <br>
-        Built for Modern Markets.
-      </h1>
-      <p class="hero-subtitle">
-        Harness advanced AI, machine learning, and market microstructure to snipe opportunities and execute risk-managed trades with institution-grade performance—made for retail investors.
-      </p>
-      <a class="hero-cta" href="mailto:contact@algosnipe.ai">Get In Touch</a>
-    </div>
+    <h1 class="hero-title">AI-Driven Trading. Precision. Speed.</h1>
+    <p class="hero-subtitle">
+      Built for Modern Markets.<br>
+      Harness advanced AI, machine learning, and market microstructure to snipe opportunities and execute risk-managed trades with institution-grade performance—made for retail investors.
+    </p>
+    <a class="hero-cta" href="mailto:contact@algosnipe.ai">Get In Touch</a>
   </section>
 
   <section id="features" class="features" aria-label="Core Features">
@@ -266,11 +173,12 @@
     </div>
   </section>
 
-  <section id="about" class="features" aria-label="About AlgoSnipe AI" style="background: transparent; backdrop-filter: brightness(0.5);">
+  <section id="about" class="features" aria-label="About AlgoSnipe AI">
     <div class="feature-card" style="max-width:900px; width:100%; text-align:center; margin:auto;">
       <div class="feature-title" style="font-size:1.6em;">About Us</div>
       <div class="feature-desc" style="font-size:1.1em;">
         AlgoSnipe AI was founded to democratize access to advanced trading technology. Our mission is to empower individuals with the tools, intelligence, and execution quality once reserved for [...]
+        <br><br>
         <a href="mailto:contact@algosnipe.ai" class="hero-cta" style="margin-top:20px;">Contact Us</a>
       </div>
     </div>
@@ -279,5 +187,17 @@
   <footer>
     &copy; 2025 AlgoSnipe AI. All rights reserved.
   </footer>
+
+  <!-- JavaScript to autoplay video in Firefox -->
+  <script>
+    window.addEventListener("load", function () {
+      const vid = document.getElementById("yt-bg");
+      vid.muted = true;
+      vid.play().catch(err => {
+        console.warn("Autoplay blocked:", err);
+      });
+    });
+  </script>
+
 </body>
 </html>
