@@ -36,19 +36,16 @@
       z-index: -1;
     }
 
-    nav,
-    footer {
-      background: transparent !important;
-    }
-
     nav {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      padding: 1em 1.5rem;
       position: fixed;
-      top: 0; width: 100%;
+      top: 0; left: 0;
+      width: 100%;
       z-index: 10;
+      background: transparent !important;
+      padding: 1em 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
     .nav-logo {
@@ -58,25 +55,26 @@
       color: white;
     }
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1rem;
+    .hero-cta {
+      padding: 0.6em 1.4em;
+      font-weight: bold;
+      font-size: 1em;
+      background: white;
+      color: black !important;
+      border-radius: 8px;
+      text-decoration: none;
+      user-select: none;
     }
 
-    .hero {
-      padding-top: 100px; /* reduced height */
-      padding-bottom: 30px; /* reduced height */
-      text-align: center;
-      position: relative;
-      z-index: 1;
-      background: rgba(255, 255, 255, 0.65); /* more transparent */
-      border-radius: 16px;
-      box-shadow: 0 0 30px rgba(255, 255, 255, 0.2); /* softer shadow */
+    .hero-wrapper {
+      background: rgba(255, 255, 255, 0.85);
+      width: 100%;
+      padding: 4rem 1rem 3rem;
       color: black;
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
+      margin-top: 64px; /* space below fixed nav */
+      text-align: center;
+      border-radius: 0 0 20px 20px;
+      box-sizing: border-box;
     }
 
     .hero-title {
@@ -87,12 +85,9 @@
 
     .hero-subtitle {
       font-size: 1.4em;
-      max-width: 900px; /* increased horizontal width */
-      margin: 0 auto 1em auto;
-      line-height: 1.3;
-      background: transparent;
-      padding: 0;
-      color: black;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.4;
     }
 
     /* Features grid container */
@@ -131,21 +126,6 @@
 
     .about-feature .feature-desc {
       font-size: 0.95em;
-    }
-
-    .hero-cta {
-      margin-top: 1rem;
-      display: inline-block;
-      padding: 0.6em 1.4em;
-      font-weight: bold;
-      font-size: 1em;
-      background: white;
-      color: black !important;
-      border-radius: 8px;
-      text-decoration: none;
-      text-align: center;
-      user-select: none;
-      width: fit-content;
     }
 
     footer {
@@ -197,16 +177,15 @@
 
   <nav role="navigation">
     <a class="nav-logo" href="#">AlgoSnipe AI</a>
+    <a href="mailto:AlgoSnipeAI@gmail.com" class="hero-cta">Contact Us</a>
   </nav>
 
-  <section class="hero">
-    <div class="container">
-      <h1 class="hero-title">AI-Driven Trading. Precision. Speed. Zero Emotion.</h1>
-      <p class="hero-subtitle">
-        Built for Modern Markets.<br />
-        Harness advanced AI, machine learning, and market microstructure to snipe opportunities and execute risk-managed trades with institution-grade performance—made for retail investors.
-      </p>
-    </div>
+  <section class="hero-wrapper">
+    <h1 class="hero-title">AI-Driven Trading. Precision. Speed. Zero Emotion.</h1>
+    <p class="hero-subtitle">
+      Built for Modern Markets.<br />
+      Harness advanced AI, machine learning, and market microstructure to snipe opportunities and execute risk-managed trades with institution-grade performance—made for retail investors.
+    </p>
   </section>
 
   <section id="features" class="features" aria-label="Core Features">
@@ -218,7 +197,7 @@
         </div>
         <div class="feature-card">
           <div class="feature-title">Smart Trade Execution</div>
-          <div class="feature-desc">Deploy intelligent order routing and microstructure-aware strategies for optimal fills and reduced slippage.</div>
+          <div class="feature-desc">Deploy advanced order types, intelligent order routing and microstructure-aware strategies for optimal fills and reduced slippage.</div>
         </div>
         <div class="feature-card">
           <div class="feature-title">Custom Algorithms</div>
