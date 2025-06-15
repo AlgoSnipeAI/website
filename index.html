@@ -40,12 +40,14 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1em 1.5rem;
+      padding: 1em 3rem 1em 1.5rem; /* increased right padding */
       position: fixed;
       top: 0; width: 100%;
       z-index: 10;
       background: transparent !important;
       color: white;
+      box-sizing: border-box;
+      overflow: visible;
     }
 
     .nav-logo {
@@ -68,6 +70,9 @@
       text-align: center;
       overflow: hidden;
       text-overflow: ellipsis;
+      /* Ensure it does not get cut off */
+      min-width: 100px;
+      box-sizing: border-box;
     }
 
     .container {
