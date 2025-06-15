@@ -117,7 +117,7 @@
     .feature-grid {
       display: flex;
       flex-wrap: wrap;
-      justify-content: flex-start; /* align left */
+      justify-content: center; /* center the entire group */
       gap: 2rem;
       align-items: stretch;
       position: relative;
@@ -125,19 +125,16 @@
     }
 
     .feature-card {
-    max-width: 300px;
-    margin: 0;
-    padding: 0 1rem;
-    overflow-wrap: break-word;
-  
-    display: flex;
-    flex-direction: column;
-    /* Remove min-height or reduce it */
-    /* min-height: 320px; */
-    min-height: unset;
-    padding-bottom: 1.5rem; /* keep some bottom spacing */
-  }
+      max-width: 300px;
+      margin: 0;
+      padding: 0 1rem;
+      overflow-wrap: break-word;
 
+      display: flex;
+      flex-direction: column;
+      min-height: unset;
+      padding-bottom: 1.5rem;
+    }
 
     .feature-title {
       font-size: 1.2em;
