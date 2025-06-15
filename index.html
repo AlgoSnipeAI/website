@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>AlgoSnipe AI</title>
-  <link href="https://fonts.googleapis.com/css?family=Inter:400,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,700&display=swap" rel="stylesheet" />
   <style>
     html, body {
       margin: 0;
@@ -24,9 +24,9 @@
       height: 100vh;
       object-fit: cover;
       z-index: -1;
-      opacity: 0.1; /* subtle video visibility */
+      opacity: 0.1;
       pointer-events: none;
-      background: black; /* fallback bg in case video doesn't load */
+      background: black;
     }
 
     nav, .hero, .features, footer, section, .feature-card {
@@ -45,7 +45,7 @@
       width: 100%;
       z-index: 2;
       box-sizing: border-box;
-      background: rgba(255 255 255 / 0.9); /* semi-transparent white nav background */
+      background: rgba(255 255 255 / 0.9);
       border-bottom: 1px solid #ccc;
     }
 
@@ -134,7 +134,7 @@
 <body>
 
   <!-- Fullscreen video background -->
-  <video id="yt-bg" muted playsinline loop preload="auto" crossorigin="anonymous">
+  <video id="yt-bg" muted playsinline autoplay loop preload="auto" crossorigin="anonymous">
     <source src="https://algosnipeai.github.io/website/18743334-hd_1920_1080_60fps.mp4" type="video/mp4" />
     Your browser does not support the video tag.
   </video>
@@ -194,13 +194,11 @@
   </footer>
 
   <script>
-    // Firefox & Safari autoplay fix
-    window.addEventListener("load", function () {
+    // Ensure autoplay in Firefox and Safari
+    window.addEventListener("load", () => {
       const vid = document.getElementById("yt-bg");
       vid.muted = true;
-      vid.play().catch(err => {
-        console.warn("Autoplay blocked:", err);
-      });
+      vid.play().catch(e => console.warn("Autoplay blocked:", e));
     });
   </script>
 
