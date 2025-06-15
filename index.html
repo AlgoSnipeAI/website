@@ -99,15 +99,23 @@
   </nav>
 
   <!-- Hero -->
-  <section class="hero">
-    <video autoplay muted loop playsinline preload="auto"
-            src="https://algosnipeai.github.io/website/18743334-hd_1920_1080_60fps.mp4"
-            type="video/mp4"></video>
+ <section class="hero" style="position:relative;height:50vh;min-height:360px;padding-top:110px;text-align:center;overflow:hidden;background:transparent;">
+  <!-- DEBUG: controls lets you see if the file even loads -->
+  <video id="heroVid"
+         src="https://algosnipeai.github.io/website/18743334-hd_1920_1080_60fps.mp4"
+         autoplay muted loop playsinline controls
+         style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;z-index:-1;"></video>
 
-    <h1>AI-Driven Trading. Precision. Speed.</h1>
-    <p>Harness advanced AI and market micro-structure to snipe opportunities and execute risk-managed trades with institution-grade performance.</p>
-    <a class="btn" href="mailto:AlgoSnipeAI@gmail.com">Get&nbsp;In&nbsp;Touch</a>
-  </section>
+  <h1 style="font-size:3.2em;font-weight:700;letter-spacing:-2px;margin:0 0 16px;text-shadow:0 2px 6px #000;">AI-Driven Trading. Precision. Speed.</h1>
+  <p style="font-size:1.25em;color:#b5b5b5;margin:0 auto 32px;max-width:640px;text-shadow:0 1px 4px #000;">
+    Harness advanced AI and market micro-structure to snipe opportunities and execute risk-managed trades with institution-grade performance.
+  </p>
+  <a href="mailto:AlgoSnipeAI@gmail.com"
+     style="display:inline-block;background:#00fff7;color:#000;font-weight:700;padding:14px 42px;border-radius:8px;text-decoration:none;box-shadow:0 2px 24px rgba(0,255,247,.14);">
+     Get&nbsp;In&nbsp;Touch
+  </a>
+</section>
+
 
   <!-- Features -->
   <section id="features" class="features" aria-label="Core Features">
