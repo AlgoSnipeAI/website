@@ -117,22 +117,20 @@
     .feature-grid {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center; /* center the entire group */
+      justify-content: center;
       gap: 2rem;
-      align-items: stretch;
+      align-items: stretch; /* Ensure all cards same height */
       position: relative;
       z-index: 1;
     }
 
     .feature-card {
       max-width: 300px;
-      margin: 0;
       padding: 0 1rem;
-      overflow-wrap: break-word;
-
+      margin: 0;
       display: flex;
       flex-direction: column;
-      min-height: unset;
+      min-height: 240px; /* consistent min height for alignment */
       padding-bottom: 1.5rem;
     }
 
