@@ -38,33 +38,42 @@
       box-sizing: border-box;
       border-bottom: 1px solid #222;
     }
+
     .nav-logo {
-      font-size: 1.4em;
-      font-weight: 700;
-      letter-spacing: 1px;
-      color: #00fff7;
-      text-decoration: none;
-      margin-right: auto;
+      display: block;
+      width: 40px; /* small icon size */
+      height: 40px;
+      background: url('https://algosnipeai.github.io/website/logo.png') no-repeat center center;
+      background-size: contain;
+      margin-right: 24px;
+      flex-shrink: 0;
+      text-indent: -9999px; /* hide text if any */
     }
+
     nav ul {
       list-style: none;
       margin: 0; padding: 0;
       display: flex;
       gap: 32px;
       align-items: center;
+      flex-grow: 1;
     }
+
     nav ul li {
       display: inline;
     }
+
     nav ul li a {
       color: white;
       text-decoration: none;
       font-weight: 500;
       font-size: 1em;
     }
+
     nav ul li:last-child {
       margin-left: auto;
     }
+
     nav ul li a:hover,
     nav ul li a:focus {
       color: #00fff7;
@@ -77,12 +86,6 @@
       margin: 0 auto;
       position: relative;
       z-index: 5;
-    }
-
-    .hero-logo {
-      width: 100px;
-      margin: 0 auto 30px;
-      display: block;
     }
 
     .hero-title {
@@ -113,6 +116,7 @@
       box-shadow: 0 2px 24px 0 rgba(0, 255, 247, 0.14);
       transition: background 0.2s, color 0.2s;
     }
+
     .hero-cta:hover,
     .hero-cta:focus {
       background: #0ff;
@@ -128,6 +132,7 @@
       position: relative;
       z-index: 5;
     }
+
     .feature-card {
       background: rgba(22, 24, 27, 0.75);
       border-radius: 14px;
@@ -142,12 +147,14 @@
       max-width: 340px;
       color: white;
     }
+
     .feature-title {
       font-size: 1.25em;
       font-weight: 700;
       margin-bottom: 10px;
       color: #00fff7;
     }
+
     .feature-desc {
       font-size: 1em;
       line-height: 1.6;
@@ -161,15 +168,18 @@
       text-align: center;
       z-index: 5;
     }
+
     #about .feature-card {
       background: rgba(22, 24, 27, 0.6);
       padding: 40px 32px;
       max-width: 100%;
     }
+
     #about .feature-title {
       font-size: 1.6em;
       margin-bottom: 20px;
     }
+
     #about .feature-desc {
       font-size: 1.1em;
       color: #ddd;
@@ -220,7 +230,7 @@
   </video>
 
   <nav role="navigation">
-    <a class="nav-logo" href="#">AlgoSnipe AI</a>
+    <a href="#" class="nav-logo">AlgoSnipe AI</a>
     <ul>
       <li><a href="#features">Features</a></li>
       <li><a href="mailto:contact@algosnipe.ai">Contact</a></li>
@@ -229,7 +239,6 @@
   </nav>
 
   <section class="hero">
-    <img src="https://algosnipeai.github.io/website/logo.png" alt="AlgoSnipe AI Logo" class="hero-logo" />
     <div>
       <h1 class="hero-title">AI-Driven Trading. Precision. Speed. Zero Emotion.</h1>
       <p class="hero-subtitle">
@@ -274,7 +283,7 @@
   <footer>&copy; 2025 AlgoSnipe AI. All rights reserved.</footer>
 
   <script>
-    // For Firefox autoplay fix
+    // Firefox autoplay fix
     window.addEventListener("load", function () {
       const vid = document.getElementById("yt-bg");
       vid.muted = true;
