@@ -16,16 +16,16 @@
     }
 
     .container {
-      max-width: 1200px;
+      max-width: 800px;
       margin: 0 auto;
-      padding: 0 1.5rem;
+      padding: 0 1.25rem;
     }
 
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1em 1.5rem;
+      padding: 1em 1.25rem;
       position: fixed;
       top: 0;
       width: 100%;
@@ -83,15 +83,14 @@
     }
 
     .hero-title {
-      font-size: 3em;
+      font-size: 2.6em;
       font-weight: 700;
       color: black;
     }
 
     .hero-subtitle {
-      font-size: 1.4em;
+      font-size: 1.2em;
       color: black;
-      max-width: 700px;
       margin: 0 auto 2em auto;
     }
 
@@ -111,9 +110,7 @@
 
     .features .feature-card {
       width: 100%;
-      max-width: 320px;
       margin-bottom: 2rem;
-      flex: 1;
     }
 
     .feature-title {
@@ -129,8 +126,7 @@
 
     .feature-grid {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      flex-direction: column;
       gap: 2rem;
     }
 
@@ -142,14 +138,9 @@
       font-size: 0.9em;
     }
 
-    /* Responsive adjustments */
     @media (max-width: 768px) {
-      .hero-title {
-        font-size: 2em;
-      }
-      .hero-subtitle {
-        font-size: 1.1em;
-      }
+      .hero-title { font-size: 2em; }
+      .hero-subtitle { font-size: 1.1em; }
       nav {
         flex-direction: column;
         align-items: flex-start;
@@ -163,7 +154,6 @@
 
     @media (max-width: 480px) {
       .hero-cta {
-        display: inline-block;
         padding: 0.8em 1.5em;
         font-size: 1em;
       }
@@ -172,9 +162,9 @@
 </head>
 <body>
 
-  <!-- 🎥 Horizontal video bar -->
+  <!-- 🎥 Video bar -->
   <div class="video-container">
-    <video id="yt-bg" muted playsinline loop>
+    <video id="yt-bg" autoplay muted playsinline loop>
       <source src="https://algosnipeai.github.io/website/18743334-hd_1920_1080_60fps.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
@@ -189,4 +179,73 @@
     </ul>
   </nav>
 
-  <section
+  <section class="hero">
+    <div class="container">
+      <h1 class="hero-title">AI-Driven Trading. Precision. Speed.</h1>
+      <p class="hero-subtitle">
+        Built for Modern Markets.<br>
+        Harness advanced AI, machine learning, and market microstructure to snipe opportunities and execute risk-managed trades with institution-grade performance—made for retail investors.
+      </p>
+      <a class="hero-cta" href="mailto:contact@algosnipe.ai">Get In Touch</a>
+    </div>
+  </section>
+
+  <section id="features" class="features" aria-label="Core Features">
+    <div class="container">
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-title">Real-Time Market Scanning</div>
+          <div class="feature-desc">Leverage AI to monitor global equity markets and identify actionable signals as they emerge.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-title">Smart Trade Execution</div>
+          <div class="feature-desc">Deploy intelligent order routing and microstructure-aware strategies for optimal fills and reduced slippage.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-title">Custom Algorithms</div>
+          <div class="feature-desc">Develop, test, and deploy custom trading algorithms tailored to your unique risk and return profile.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-title">Backtested Signal Generation</div>
+          <div class="feature-desc">Robust backtesting and optimization ensure strategies are data-driven and performance-validated.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-title">Retail-First, Pro-Grade</div>
+          <div class="feature-desc">Enjoy institutional technology and discipline, delivered through a platform designed for retail investors.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="features" aria-label="About AlgoSnipe AI">
+    <div class="container">
+      <div class="feature-card" style="text-align:center;">
+        <div class="feature-title" style="font-size:1.6em;">About Us</div>
+        <div class="feature-desc" style="font-size:1.1em;">
+          AlgoSnipe AI was founded to democratize access to advanced trading technology. Our mission is to empower individuals with the tools, intelligence, and execution quality once reserved for institutions.
+          <br><br>
+          <a href="mailto:contact@algosnipe.ai" class="hero-cta" style="margin-top:20px;">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      &copy; 2025 AlgoSnipe AI. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    // Force video to play after load in all browsers
+    window.addEventListener("DOMContentLoaded", function () {
+      const vid = document.getElementById("yt-bg");
+      vid.muted = true;
+      vid.play().catch(err => {
+        console.warn("Autoplay blocked:", err);
+      });
+    });
+  </script>
+
+</body>
+</html>
