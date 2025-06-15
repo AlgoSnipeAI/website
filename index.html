@@ -6,29 +6,31 @@
   <title>AlgoSnipe AI</title>
   <link href="https://fonts.googleapis.com/css?family=Inter:400,700&display=swap" rel="stylesheet" />
   <style>
+    /* Make body transparent so video shows through */
     html, body {
       margin: 0;
       padding: 0;
+      height: 100%;
       font-family: 'Inter', sans-serif;
-      background: white;
+      background: transparent;
       color: black;
       overflow-x: hidden;
-      height: 100%;
     }
 
+    /* Video fills background with increased opacity */
     #yt-bg {
       position: fixed;
-      top: 0;
-      left: 0;
+      top: 0; left: 0;
       width: 100vw;
       height: 100vh;
       object-fit: cover;
       z-index: -1;
-      opacity: 0.1;
+      opacity: 0.35; /* stronger visibility */
       pointer-events: none;
       background: black;
     }
 
+    /* Content containers transparent */
     nav, .hero, .features, footer, section, .feature-card {
       background: transparent !important;
       border: none !important;
@@ -43,10 +45,12 @@
       position: fixed;
       top: 0;
       width: 100%;
-      z-index: 2;
+      z-index: 10;
       box-sizing: border-box;
-      background: rgba(255 255 255 / 0.9);
-      border-bottom: 1px solid #ccc;
+      /* Transparent nav background so video visible behind it */
+      background: transparent;
+      border-bottom: 1px solid rgba(0,0,0,0.2);
+      color: black;
     }
 
     .nav-logo {
@@ -92,6 +96,7 @@
       max-width: 600px;
       margin: 0 auto 2em auto;
       line-height: 1.5;
+      background: transparent;
     }
 
     .hero-cta {
@@ -109,11 +114,13 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 2em;
+      background: transparent !important;
     }
 
     .feature-card {
       width: 300px;
       color: black;
+      background: transparent !important;
     }
 
     .feature-title {
@@ -126,6 +133,7 @@
       font-size: 1em;
       color: #444;
       line-height: 1.4;
+      background: transparent;
     }
 
     footer {
@@ -133,6 +141,9 @@
       padding: 2em;
       color: #666;
       font-size: 0.9em;
+      background: transparent !important;
+      position: relative;
+      z-index: 10;
     }
   </style>
 </head>
@@ -142,10 +153,10 @@
     id="yt-bg"
     muted
     playsinline
+    autoplay
     loop
     preload="auto"
     crossorigin="anonymous"
-    style="display:block;"
   >
     <source src="https://algosnipeai.github.io/website/18743334-hd_1920_1080_60fps.mp4" type="video/mp4" />
     Your browser does not support the video tag.
