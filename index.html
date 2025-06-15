@@ -29,14 +29,14 @@
       flex-direction: column;
       position: relative;
     }
-    #bg-video {
+    #yt-bg {
       position: fixed;
       top: 0; left: 0;
       width: 100vw; height: 100vh;
-      object-fit: cover;
       z-index: 0;
-      opacity: 0.18;
       pointer-events: none;
+      opacity: 0.18;
+      border: none;
     }
     nav {
       width: 100%;
@@ -182,13 +182,21 @@
       .feature-card { width: 100%; min-width: unset; max-width: unset; }
       .hero { padding-top: 100px; }
     }
+    nav, .hero, .features, footer {
+      position: relative;
+      z-index: 1;
+    }
   </style>
 </head>
 <body>
-  <video autoplay muted loop playsinline id="bg-video">
-    <source src="https://player.vimeo.com/external/5834511.sd.mp4?s=e3f91b1888b3c5a7f66cb9e8eec9b8e728d3a72e&profile_id=164" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+  <!-- YouTube video background -->
+  <iframe id="yt-bg"
+    src="https://www.youtube.com/embed/ipUuoMCEbDQ?autoplay=1&mute=1&controls=0&loop=1&playlist=ipUuoMCEbDQ&modestbranding=1&showinfo=0&rel=0"
+    style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:0;pointer-events:none;opacity:0.18;border:none;"
+    frameborder="0"
+    allow="autoplay; encrypted-media"
+    allowfullscreen>
+  </iframe>
   <nav role="navigation">
     <a class="nav-logo" href="#">AlgoSnipe AI</a>
     <ul>
