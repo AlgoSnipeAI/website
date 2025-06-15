@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AlgoSnipe AI</title>
   <link href="https://fonts.googleapis.com/css?family=Inter:400,700&display=swap" rel="stylesheet" />
   <style>
@@ -15,6 +15,7 @@
       overflow-x: hidden;
       height: 100%;
     }
+
     #yt-bg {
       position: fixed;
       top: 0;
@@ -23,15 +24,17 @@
       height: 100vh;
       object-fit: cover;
       z-index: -1;
-      opacity: 0.1; /* subtle video */
+      opacity: 0.1;
       pointer-events: none;
-      background: black; /* fallback */
+      background: black;
     }
+
     nav, .hero, .features, footer, section, .feature-card {
       background: transparent !important;
       border: none !important;
       box-shadow: none !important;
     }
+
     nav {
       display: flex;
       justify-content: space-between;
@@ -45,12 +48,14 @@
       background: rgba(255 255 255 / 0.9);
       border-bottom: 1px solid #ccc;
     }
+
     .nav-logo {
       font-size: 1.4em;
       font-weight: 700;
       color: black;
       text-decoration: none;
     }
+
     nav ul {
       list-style: none;
       display: flex;
@@ -58,20 +63,24 @@
       margin: 0;
       padding: 0;
     }
+
     nav ul li a {
       color: black;
       text-decoration: none;
       font-weight: 500;
     }
+
     .hero {
       padding-top: 120px;
       text-align: center;
     }
+
     .hero-title {
       font-size: 3em;
       font-weight: 700;
       color: black;
     }
+
     .hero-subtitle {
       font-size: 1.4em;
       color: #333;
@@ -79,6 +88,7 @@
       margin: 0 auto 2em auto;
       line-height: 1.5;
     }
+
     .hero-cta {
       background: black;
       color: white;
@@ -87,6 +97,7 @@
       text-decoration: none;
       font-weight: bold;
     }
+
     .features {
       padding: 4em 2em;
       display: flex;
@@ -94,20 +105,24 @@
       justify-content: center;
       gap: 2em;
     }
+
     .feature-card {
       width: 300px;
       color: black;
     }
+
     .feature-title {
       font-size: 1.25em;
       font-weight: 700;
       margin-bottom: 10px;
     }
+
     .feature-desc {
       font-size: 1em;
       color: #444;
       line-height: 1.4;
     }
+
     footer {
       text-align: center;
       padding: 2em;
@@ -118,14 +133,15 @@
 </head>
 <body>
 
+  <!-- Fullscreen video background -->
   <video
     id="yt-bg"
     muted
     playsinline
-    autoplay
     loop
     preload="auto"
     crossorigin="anonymous"
+    style="display:block;"
   >
     <source src="https://algosnipeai.github.io/website/18743334-hd_1920_1080_60fps.mp4" type="video/mp4" />
     Your browser does not support the video tag.
@@ -141,7 +157,7 @@
   <section class="hero">
     <h1 class="hero-title">AI-Driven Trading. Precision. Speed. Zero Emotion.</h1>
     <p class="hero-subtitle">
-      Built for Modern Markets.<br>
+      Built for Modern Markets.<br />
       Harness advanced AI, machine learning, and advanced ordering to snipe opportunities and execute risk-managed trades with institution-grade performance—made for retail investors.
     </p>
     <a class="hero-cta" href="mailto:contact@algosnipe.ai">Get In Touch</a>
@@ -175,7 +191,7 @@
       <div class="feature-title" style="font-size:1.6em;">About Us</div>
       <div class="feature-desc" style="font-size:1.1em;">
         AlgoSnipe AI was founded to democratize access to advanced trading technology. Our mission is to empower individuals with the tools, intelligence, and execution quality once reserved for institutional players.
-        <br><br>
+        <br /><br />
         <a href="mailto:contact@algosnipe.ai" class="hero-cta" style="margin-top:20px;">Contact Us</a>
       </div>
     </div>
@@ -188,7 +204,7 @@
   <script>
     window.addEventListener("load", function () {
       const vid = document.getElementById("yt-bg");
-      vid.muted = true;
+      vid.muted = true;  // Ensure muted before play
       vid.play().catch(err => {
         console.warn("Autoplay blocked:", err);
       });
