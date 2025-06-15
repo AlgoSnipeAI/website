@@ -18,7 +18,8 @@
 
     #yt-bg {
       position: fixed;
-      top: 0; left: 0;
+      top: 0;
+      left: 0;
       width: 100vw;
       height: 100vh;
       object-fit: cover;
@@ -28,15 +29,9 @@
       background: black;
     }
 
-    nav, .hero, .features, footer, section, .feature-card {
-      background: transparent !important;
-      border: none !important;
-      box-shadow: none !important;
-    }
-
     nav {
       display: flex;
-      justify-content: flex-end;
+      justify-content: space-between;
       align-items: center;
       padding: 1em 2em;
       position: fixed;
@@ -44,9 +39,17 @@
       width: 100%;
       z-index: 10;
       box-sizing: border-box;
-      background: transparent;
-      border-bottom: 1px solid rgba(0,0,0,0.2);
-      color: black;
+      background: rgba(255, 255, 255, 0.8);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-logo img {
+      height: 48px;
+      width: auto;
+      object-fit: contain;
+      margin: 0;
+      padding: 0;
+      display: block;
     }
 
     nav ul {
@@ -58,48 +61,15 @@
       align-items: center;
     }
 
-    nav ul li {
-      display: flex;
-      align-items: center;
-    }
-
     nav ul li a {
       color: black;
       text-decoration: none;
       font-weight: 500;
-      line-height: 1;
-      padding-top: 6px;
     }
 
     .hero {
-      position: relative;
-      padding-top: 120px;
+      padding-top: 140px;
       text-align: center;
-      background: transparent !important;
-      /* Large subtle logo background */
-      background-image: url('https://raw.githubusercontent.com/AlgoSnipeAI/website/main/mainLogo-transparent.png');
-      background-repeat: no-repeat;
-      background-position: center top 40px;
-      background-size: 200px auto;
-    }
-    .hero > div {
-      position: relative;
-      z-index: 1;
-    }
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: 40px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 200px;
-      height: 200px;
-      background-image: url('https://raw.githubusercontent.com/AlgoSnipeAI/website/main/mainLogo-transparent.png');
-      background-repeat: no-repeat;
-      background-size: contain;
-      opacity: 0.12;
-      pointer-events: none;
-      z-index: 0;
     }
 
     .hero-title {
@@ -114,7 +84,6 @@
       max-width: 600px;
       margin: 0 auto 2em auto;
       line-height: 1.5;
-      background: transparent;
     }
 
     .hero-cta {
@@ -132,13 +101,11 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 2em;
-      background: transparent !important;
     }
 
     .feature-card {
       width: 300px;
       color: black;
-      background: transparent !important;
     }
 
     .feature-title {
@@ -151,16 +118,6 @@
       font-size: 1em;
       color: #444;
       line-height: 1.4;
-      background: transparent;
-    }
-
-    #about {
-      margin-top: 0 !important;
-      padding-top: 0 !important;
-    }
-
-    #about .hero-cta {
-      margin-top: 0.5rem !important;
     }
 
     footer {
@@ -168,45 +125,35 @@
       padding: 2em;
       color: #666;
       font-size: 0.9em;
-      background: transparent !important;
-      position: relative;
-      z-index: 10;
     }
   </style>
 </head>
 <body>
 
-  <video
-    id="yt-bg"
-    muted
-    playsinline
-    autoplay
-    loop
-    preload="auto"
-    crossorigin="anonymous"
-  >
+  <video id="yt-bg" muted playsinline autoplay loop preload="auto" crossorigin="anonymous">
     <source src="https://algosnipeai.github.io/website/18743334-hd_1920_1080_60fps.mp4" type="video/mp4" />
     Your browser does not support the video tag.
   </video>
 
-  <nav role="navigation">
+  <nav>
+    <div class="nav-logo">
+      <img src="https://algosnipeai.github.io/website/mainLogo.png" alt="AlgoSnipe AI Logo" />
+    </div>
     <ul>
       <li><a href="mailto:AlgoSnipeAI@gmail.com">Contact</a></li>
     </ul>
   </nav>
 
   <section class="hero">
-    <div>
-      <h1 class="hero-title">AI-Driven Trading. Precision. Speed. Zero Emotion.</h1>
-      <p class="hero-subtitle">
-        Built for Modern Markets.<br />
-        Harness advanced AI, machine learning, and advanced ordering to snipe opportunities and execute risk-managed trades with institution-grade performance—made for retail investors.
-      </p>
-      <a class="hero-cta" href="mailto:AlgoSnipeAI@gmail.com">Get In Touch</a>
-    </div>
+    <h1 class="hero-title">AI-Driven Trading. Precision. Speed. Zero Emotion.</h1>
+    <p class="hero-subtitle">
+      Built for Modern Markets.<br />
+      Harness advanced AI, machine learning, and advanced ordering to snipe opportunities and execute risk-managed trades with institution-grade performance—made for retail investors.
+    </p>
+    <a class="hero-cta" href="mailto:AlgoSnipeAI@gmail.com">Get In Touch</a>
   </section>
 
-  <section id="features" class="features" aria-label="Core Features">
+  <section class="features">
     <div class="feature-card">
       <div class="feature-title">Real-Time Market Scanning</div>
       <div class="feature-desc">Leverage AI to monitor global equity markets 24/7/365 to identify actionable signals as they emerge.</div>
@@ -229,7 +176,7 @@
     </div>
   </section>
 
-  <section id="about" class="features" aria-label="About AlgoSnipe AI">
+  <section class="features" id="about">
     <div class="feature-card" style="max-width:900px; width:100%; text-align:center; margin:auto;">
       <div class="feature-title" style="font-size:1.6em;">About Us</div>
       <div class="feature-desc" style="font-size:1.1em;">
