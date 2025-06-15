@@ -10,9 +10,22 @@
       margin: 0;
       padding: 0;
       font-family: 'Inter', sans-serif;
-      background: white;
-      color: black;
+      background: black;
+      color: white;
       overflow-x: hidden;
+    }
+
+    /* 🎥 Fullscreen background video */
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.4;
+      pointer-events: none;
     }
 
     .container {
@@ -30,14 +43,14 @@
       top: 0;
       width: 100%;
       z-index: 10;
-      background: white;
-      border-bottom: 1px solid #ddd;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(6px);
     }
 
     .nav-logo {
       font-size: 1.4em;
       font-weight: 700;
-      color: black;
+      color: white;
       text-decoration: none;
     }
 
@@ -50,34 +63,15 @@
     }
 
     nav ul li a {
-      color: black;
+      color: white;
       text-decoration: none;
       font-weight: 500;
-    }
-
-    .video-container {
-      position: absolute;
-      top: 64px;
-      left: 0;
-      width: 100%;
-      height: 40vh;
-      overflow: hidden;
-      z-index: 0;
-    }
-
-    .video-container video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      opacity: 0.85;
     }
 
     .hero {
       padding-top: 200px;
       padding-bottom: 60px;
       text-align: center;
-      background: transparent;
       position: relative;
       z-index: 1;
     }
@@ -85,19 +79,19 @@
     .hero-title {
       font-size: 3em;
       font-weight: 700;
-      color: black;
+      color: white;
     }
 
     .hero-subtitle {
       font-size: 1.4em;
-      color: black;
+      color: white;
       max-width: 700px;
       margin: 0 auto 2em auto;
     }
 
     .hero-cta {
-      background: black;
-      color: white;
+      background: white;
+      color: black;
       padding: 1em 2em;
       border-radius: 8px;
       text-decoration: none;
@@ -106,7 +100,7 @@
 
     .features {
       padding: 4em 0;
-      background: white;
+      background: transparent;
     }
 
     .feature-card {
@@ -119,11 +113,12 @@
       font-size: 1.25em;
       font-weight: 700;
       margin-bottom: 10px;
+      color: white;
     }
 
     .feature-desc {
       font-size: 1em;
-      color: #333;
+      color: #ddd;
     }
 
     .feature-grid {
@@ -134,10 +129,10 @@
     }
 
     footer {
-      background: white;
+      background: transparent;
       text-align: center;
       padding: 2em 0;
-      color: black;
+      color: #ccc;
       font-size: 0.9em;
     }
 
@@ -165,12 +160,11 @@
 </head>
 <body>
 
-  <div class="video-container">
-    <video id="yt-bg" autoplay muted loop playsinline preload="auto">
-      <source src="https://algosnipeai.github.io/website/18743334-hd_1920_1080_60fps.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div>
+  <!-- 🔥 Fullscreen video -->
+  <video id="bg-video" autoplay muted loop playsinline preload="auto">
+    <source src="https://algosnipeai.github.io/website/18743334-hd_1920_1080_60fps.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
 
   <nav role="navigation">
     <a class="nav-logo" href="#">AlgoSnipe AI</a>
@@ -240,7 +234,7 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      const vid = document.getElementById("yt-bg");
+      const vid = document.getElementById("bg-video");
       vid.muted = true;
       vid.play().catch(err => {
         console.warn("Autoplay failed:", err);
