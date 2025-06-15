@@ -13,7 +13,9 @@
       --text-main: #fff;
       --text-muted: #b5b5b5;
     }
-    * { margin:0; padding:0; box-sizing: border-box; }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
       font-family: 'Inter', Arial, sans-serif;
       background: var(--bg-dark);
@@ -22,18 +24,20 @@
       flex-direction: column;
       min-height: 100vh;
     }
+
     nav {
       position: fixed;
       top: 0;
       width: 100%;
       height: 64px;
-      background: rgba(14,16,18,0.92);
+      background: rgba(14, 16, 18, 0.92);
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0 40px;
       z-index: 100;
     }
+
     .nav-logo {
       color: #fff;
       font-size: 1.6em;
@@ -41,16 +45,19 @@
       letter-spacing: -2px;
       text-decoration: none;
     }
+
     nav ul {
       display: flex;
       gap: 32px;
       list-style: none;
     }
+
     nav a {
       color: var(--text-main);
       text-decoration: none;
       font-weight: 500;
     }
+
     nav a:hover {
       color: var(--primary);
     }
@@ -60,9 +67,19 @@
       padding-top: 64px;
       height: 60vh;
       min-height: 320px;
-      background: rgba(255,255,255,0.8);
+      background: transparent;
       overflow: hidden;
     }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(255, 255, 255, 0.5); /* soft white overlay */
+      z-index: -1;
+    }
+
     .hero video {
       position: absolute;
       top: 0; left: 0;
@@ -71,14 +88,7 @@
       z-index: -2;
       pointer-events: none;
     }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(255,255,255,0.35); /* white overlay */
-      z-index: -1;
-    }
+
     .hero .content {
       position: relative;
       height: 100%;
@@ -89,19 +99,21 @@
       text-align: center;
       padding: 0 20px;
     }
+
     .hero h1 {
       font-size: 2.8em;
       font-weight: 700;
       margin-bottom: 16px;
       color: #000;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     }
+
     .hero p {
       font-size: 1.15em;
       color: #333;
       margin-bottom: 24px;
       max-width: 640px;
-      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     }
 
     .btn {
@@ -112,9 +124,10 @@
       padding: 14px 42px;
       border-radius: 8px;
       text-decoration: none;
-      box-shadow: 0 2px 24px rgba(0,255,247,0.14);
+      box-shadow: 0 2px 24px rgba(0, 255, 247, 0.14);
       transition: background 0.2s, color 0.2s;
     }
+
     .btn:hover {
       background: #0ff;
       color: #111;
@@ -129,6 +142,7 @@
       justify-content: center;
       align-items: flex-start;
     }
+
     .card {
       background: #16181b;
       border: 1px solid #23252b;
@@ -136,17 +150,21 @@
       padding: 20px;
       flex: 0 1 240px;
       max-width: 260px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
     }
+
     .card h3 {
       color: var(--primary);
       font-size: 1.1em;
       margin-bottom: 6px;
       font-weight: 800;
       letter-spacing: -0.3px;
-      text-shadow: 0 0 1px rgba(0,255,247,0.2),
-                   0 0 2px rgba(0,255,247,0.15);
+      text-shadow:
+        0 0 2px rgba(0,255,247,0.4),
+        0 0 4px rgba(0,255,247,0.25),
+        0 0 6px rgba(0,255,247,0.15);
     }
+
     .card p {
       color: var(--text-muted);
       font-size: 0.95em;
@@ -159,6 +177,7 @@
       margin-top: -20px;
       text-align: center;
     }
+
     #about .card {
       max-width: 820px;
       margin: 0 auto;
@@ -176,6 +195,7 @@
       .hero h1 { font-size: 2.4em; }
       .hero p { font-size: 1.05em; }
     }
+
     @media(max-width:600px) {
       nav { padding: 0 14px; }
       .hero { height: 55vh; }
