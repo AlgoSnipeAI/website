@@ -10,7 +10,7 @@
       margin: 0;
       padding: 0;
       font-family: 'Inter', sans-serif;
-      background: transparent;
+      background: transparent !important;
       color: black;
       overflow-x: hidden;
     }
@@ -125,7 +125,7 @@
 </head>
 <body>
 
-  <!-- ✅ Updated background video -->
+  <!-- ✅ Raw video background -->
   <video id="yt-bg" muted playsinline loop>
     <source src="https://algosnipeai.github.io/website/18743334-hd_1920_1080_60fps.mp4" type="video/mp4">
     Your browser does not support the video tag.
@@ -187,7 +187,7 @@
     &copy; 2025 AlgoSnipe AI. All rights reserved.
   </footer>
 
-  <!-- ✅ Autoplay fix for Firefox -->
+  <!-- ✅ Autoplay fix -->
   <script>
     window.addEventListener("load", function () {
       const vid = document.getElementById("yt-bg");
