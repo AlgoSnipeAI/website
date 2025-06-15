@@ -10,7 +10,7 @@
       margin: 0;
       padding: 0;
       font-family: 'Inter', sans-serif;
-      background: rgba(255, 255, 255, 0.85); /* semi-transparent white */
+      background: transparent;
       color: black;
       overflow-x: hidden;
     }
@@ -23,14 +23,14 @@
       height: 100vh;
       object-fit: cover;
       z-index: -1;
-      opacity: 0.4; /* visible video */
+      opacity: 1;
       pointer-events: none;
     }
 
     nav, .hero, .features, footer, section, .feature-card {
-      background: transparent;
-      border: none;
-      box-shadow: none;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
     }
 
     nav {
@@ -78,7 +78,7 @@
 
     .hero-subtitle {
       font-size: 1.4em;
-      color: #333;
+      color: black;
       max-width: 600px;
       margin: 0 auto 2em auto;
     }
@@ -113,22 +113,21 @@
 
     .feature-desc {
       font-size: 1em;
-      color: #444;
     }
 
     footer {
       text-align: center;
       padding: 2em;
-      color: #666;
+      color: black;
       font-size: 0.9em;
     }
   </style>
 </head>
 <body>
 
-  <!-- Fullscreen video background -->
+  <!-- ✅ Updated background video -->
   <video id="yt-bg" muted playsinline loop>
-    <source src="https://algosnipeai.github.io/website/12647214_1920_1080_30fps.mp4" type="video/mp4">
+    <source src="https://algosnipeai.github.io/website/18743334-hd_1920_1080_60fps.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
 
@@ -188,7 +187,7 @@
     &copy; 2025 AlgoSnipe AI. All rights reserved.
   </footer>
 
-  <!-- JavaScript to autoplay video in Firefox -->
+  <!-- ✅ Autoplay fix for Firefox -->
   <script>
     window.addEventListener("load", function () {
       const vid = document.getElementById("yt-bg");
