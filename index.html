@@ -36,7 +36,7 @@
 
     nav {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: center;
       padding: 1em 2em;
       position: fixed;
@@ -47,19 +47,6 @@
       background: transparent;
       border-bottom: 1px solid rgba(0,0,0,0.2);
       color: black;
-    }
-
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      height: 40px;
-    }
-    .nav-logo img {
-      height: 32px;
-      width: auto;
-      display: block;
-      border-radius: 0;
-      background: none !important;
     }
 
     nav ul {
@@ -85,13 +72,34 @@
     }
 
     .hero {
+      position: relative;
       padding-top: 120px;
       text-align: center;
       background: transparent !important;
+      /* Large subtle logo background */
+      background-image: url('https://raw.githubusercontent.com/AlgoSnipeAI/website/main/mainLogo-transparent.png');
+      background-repeat: no-repeat;
+      background-position: center top 40px;
+      background-size: 200px auto;
     }
-
     .hero > div {
-      background: transparent !important;
+      position: relative;
+      z-index: 1;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 200px;
+      height: 200px;
+      background-image: url('https://raw.githubusercontent.com/AlgoSnipeAI/website/main/mainLogo-transparent.png');
+      background-repeat: no-repeat;
+      background-size: contain;
+      opacity: 0.12;
+      pointer-events: none;
+      z-index: 0;
     }
 
     .hero-title {
@@ -182,11 +190,8 @@
   </video>
 
   <nav role="navigation">
-    <a class="nav-logo" href="#">
-      <img src="/mnt/data/mainLogo.png" alt="AlgoSnipe AI Logo" />
-    </a>
-    <ul>     
-      <li><a href="mailto:AlgoSnipeAI@gmail.com">Contact</a></li>      
+    <ul>
+      <li><a href="mailto:AlgoSnipeAI@gmail.com">Contact</a></li>
     </ul>
   </nav>
 
