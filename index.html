@@ -40,12 +40,13 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1em 1.5rem;
+      padding: 1em 2rem;  /* added more right padding */
       position: fixed;
       top: 0; width: 100%;
       z-index: 10;
       background: transparent !important;
       color: white;
+      box-sizing: border-box;
     }
 
     .nav-logo {
@@ -64,6 +65,8 @@
       text-decoration: none;
       user-select: none;
       cursor: pointer;
+      white-space: nowrap;
+      margin-left: auto;
     }
 
     .container {
@@ -73,10 +76,10 @@
     }
 
     .hero-wrapper {
-      background: rgba(255, 255, 255, 0.5); /* lighter opacity */
+      background: transparent; /* fully transparent */
       width: 100%;
       padding: 3rem 2rem 2rem;
-      color: black;
+      color: white; /* pure white */
       margin-top: 64px;
       text-align: center;
       border-radius: 0 0 20px 20px;
@@ -87,6 +90,7 @@
       font-size: 3.5em;
       font-weight: 700;
       margin: 0 0 0.3em 0;
+      color: white;
     }
 
     .hero-subtitle {
@@ -94,6 +98,7 @@
       max-width: 700px;
       margin: 0 auto 0;
       line-height: 1.3;
+      color: white;
     }
 
     /* Features grid container */
@@ -166,6 +171,12 @@
       }
       .feature-card {
         min-height: auto;
+      }
+      nav {
+        padding: 1em 1rem;
+      }
+      .contact-link {
+        margin-left: 0;
       }
     }
   </style>
